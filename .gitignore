@@ -10,7 +10,6 @@
 .env.local
 .env.staging
 
-/env
 # testing
 /coverage
 

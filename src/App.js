@@ -18,6 +18,7 @@ const App = (props) =>{
     <PrivateRoute path="/home" component={Home}/>
     <div className="App">
     <Route exact path="/" component={Landing}/>
+    <Redirect to="/"/>
     </div>
     <Redirect to="/"/>
     
