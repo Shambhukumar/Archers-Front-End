@@ -1,0 +1,82 @@
+.login{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  h1{
+    padding-bottom: 20px;
+  }
+  
+ &--input{
+   padding: 10px 0px;
+
+   &--buttons{
+     width: 69%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     text-align: center; 
+     &--text{
+       padding: 10px 0px;
+     }
+   }
+
+  
+ }
+ 
+
+ button{
+  transition: all 0.2s;
+  background-color: #e0e0e08a;
+  outline: 0;
+   cursor: pointer;
+   width: 100%;
+   height: 40px;
+  //  padding: 10px 25px;
+   font-size: 1.2rem;
+   border-radius: 30px;
+   border: 1px solid black;
+   &:hover{
+    background-color: #e6e6e6;
+   }
+ }
+
+ input[type=email]{
+  background-image: url("../img/email.png");
+  background-position: 10px 4px; 
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
+input[type=password]{
+  background-image: url("../img/lock.png");
+  background-position: 13px 5px; 
+  background-repeat: no-repeat;
+  background-size: 32px;
+}
+
+input[type=email],
+input[type=password]{
+  transition: all 0.5s;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   font-size: 1.2rem;
+   border: none;
+   border: 1px solid #a3a1a1;
+   width: 30vw;
+   height: 45px;
+   padding-left: 55px;
+   background-color: #e0e0e08a;
+   
+  }
+  
+  input[type=email]:focus,
+input[type=password]:focus {
+   outline: none;
+   background-color: #e6e6e6;
+}
+
+}

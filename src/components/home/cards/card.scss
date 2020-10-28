@@ -1,0 +1,288 @@
+.bbc-card {
+  margin: 15px 20px;
+  #logo {
+    padding: 10px;
+    width: 10%;
+    border-left: 4px solid rgb(182, 29, 29);
+  }
+  // background-color: rgba(207, 204, 204, 0.856);
+
+  // box-shadow: 3px 5px 7px 7px rgba(5, 5, 5, 0.308);
+  &-ul {
+    padding: 10px;
+    display: grid;
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    li {
+      width: 100%;
+      color: white;
+      
+      a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.5s;
+        &:hover {
+          img {
+            filter: brightness(95%);
+          }
+        }
+      }
+
+      
+
+      list-style: none;
+      span {
+        font-size: 1.4rem;
+        padding: 10px 10px;
+      }
+      p {
+        padding: 10px 5px 20px 10px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    &-li {
+      &-images {
+        min-height: 18vh; //change when responsive
+        height: 100%;
+        &--text {
+          overflow: hidden;
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 0, 0, 0) 0%,
+            rgba(22, 21, 21, 0.815) 100%
+          );
+          position: absolute;
+          z-index: 2;
+          font-size: 1.2rem;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          width: 100%;
+        }
+        position: relative;
+        &--img {
+          z-index: 4;
+          display: block;
+          width: 100%;
+          filter: brightness(80%);
+          transition: all 0.5s;
+          &:hover {
+            filter: brightness(100%);
+          }
+        }
+      }
+      &-0 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        span {
+          font-size: 2rem !important;
+          padding: 5px 0px;
+        }
+      }
+    }
+  }
+
+  // Second Heading bbc
+
+  &-ul-secondheading {
+    // position: relative;
+    padding-top: 15px;
+    display: grid;
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    grid-template-columns: auto auto auto;
+    li {
+      min-height: 25vh;
+      list-style: none;
+      width: 100%;
+      position: relative;
+
+      a {
+        text-decoration: none;
+        color: white;
+        &:hover {
+          img {
+            filter: brightness(100%);
+          }
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      position: relative;
+      filter: brightness(80%);
+      transition: all 0.5s;
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+    span {
+      font-size: 1.5rem;
+      padding: 0px 5px;
+    }
+    &-item {
+      overflow: hidden;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 0, 0, 0) 0%,
+        rgba(22, 21, 21, 0.801) 100%
+      );
+      height: 99%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: absolute;
+      z-index: 2;
+      font-size: 1.2rem;
+      padding-left: 5px;
+      width: 99%;
+      p {
+        font-size: 1.1rem;
+        padding: 10px 5px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}
+
+
+// The Wall Street Jurnal Card
+.wsj {
+  
+  margin: 20px;
+  // background-color: rgba(185, 184, 184, 0.377);
+  // box-shadow: 3px 5px 7px 7px rgba(5, 5, 5, 0.308);
+  img{
+     padding: 15px;
+     border-left: 4px solid black;
+     max-width: 100%;
+  }
+
+  &--ul {
+    display: flex;
+    flex-direction: row;
+    &--left {
+      width: 100%;
+      border-right: 1px solid rgb(158, 157, 157);
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    &--center{
+      width: 110%;
+      h3{
+        font-size: 1.7rem !important;
+      }
+
+      span{
+        font-size: 1.2rem !important;
+      }
+
+     
+    }
+    &--right {
+      width: 100%;
+      border-left: 1px solid rgb(158, 157, 157);
+      padding-left: 10px;
+    }
+  }
+
+  h3 {
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    padding-top: 10px;
+  }
+  span {
+    display: block;
+    width: 100%;
+    font-size: 1.1rem;  
+    color: rgb(43, 42, 42);
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover{
+      color: rgba(51, 93, 155, 0.89);
+    }
+  }
+  span:after{
+    display: flex;
+    content: "";
+    border-bottom: 1px solid rgb(158, 157, 157);
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+  ul {
+    margin: 10px;
+  }
+  li {
+    list-style: none;
+    
+  }
+}
+
+.times-of-india{
+  margin: 20px;
+  padding-bottom: 5px;
+  // box-shadow: 3px 5px 7px 7px rgba(5, 5, 5, 0.562);
+  // background-color: rgba(63, 62, 62, 0.377);
+  img{
+    display: block;
+    width: 15%;
+    padding-left: 10px;
+    border-left: 4px solid rgb(161, 24, 24);
+  }
+.toi{
+  position: relative;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  &-latest{
+    width: 70%;
+    display: grid;
+    padding-top: 10px;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.788);
+    color: white;
+    border-radius: 30px;
+  }
+  &-top{
+    padding-top: 10px;
+    width: 30%;
+    margin-right: 2%;
+    background-color: rgba(0, 0, 0, 0.788);
+    color: white;
+    border-radius: 30px;
+  }
+
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover{
+      color: rgb(62, 114, 224);
+    }
+  }
+  ul{
+    list-style: none;
+
+    li{
+      padding: 10px;
+    }
+  }
+
+
+}
+}
