@@ -14,14 +14,12 @@ const App = (props) =>{
   return (
     <Router>
     <Switch>
-    
     <PrivateRoute path="/home" component={Home}/>
     <div className="App">
     <Route exact path="/" component={Landing}/>
-    {/* <Redirect to="/"/> */}
+    <Redirect to="/"/>
     </div>
     <Redirect to="/"/>
-    
     </Switch>
     </Router>
   );
