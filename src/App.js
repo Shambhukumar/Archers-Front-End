@@ -5,12 +5,7 @@ import PrivateRoute from "./components/route/privateRoute";
 import { BrowserRouter as Router,  Route, Redirect, Switch } from "react-router-dom";
 import Home from "./components/home/home";
 import './App.css';
-
-
-
-
 const App = (props) =>{
-
   return (
     <Router>
     <Switch>

@@ -12,23 +12,14 @@ const Login = (props) => {
   (props.auth.isAuthenticated || token) && history.push("/home")
   const login = async(e)=>{
     e.preventDefault()
-    
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
-
     props.authUser(email,password);
-   
-    // return <Redirect to="/home"/>
-
-    // console.log(logincheck);
-
-   
   }
   
   return (
     <form onSubmit={e=>login(e)}>
       <div className="login">
-  {props.auth.accesstoken && <span>You Have Logged in Success Fully {props.user.name }</span>}
         {console.log(props.auth.accesstoken)}
         <h1>Log In!</h1>
         <div className="login--input">
