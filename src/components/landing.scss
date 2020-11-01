@@ -19,9 +19,9 @@
     &-error{
       position: absolute;
       padding: 40px 0px;
-
+      box-shadow: 0px 0px 5px 5px rgba(36, 35, 35, 0.534);
       background-color: black;
-      color: white;
+      color: rgb(211, 211, 211);
       width: 100%;
       text-align: center;
     }

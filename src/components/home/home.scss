@@ -1,34 +1,28 @@
 .home-class{
   min-height: 100vh;
   background-color: rgb(247, 247, 247);
-  &-checkbox{
-    border-bottom: 1px solid black;
-    padding:  5px 0px;
+
+
+  &-filters{
+    
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1.2rem;
-    transition: all 0.5s;
-    .not-selected{
+    padding: 5px;
+    background-color: rgb(177, 174, 174);
+    justify-content: flex-end;
+    border-bottom: 1px solid black;
+    &-text--selected{
+      cursor: pointer;
+      background-color: rgb(29, 41, 44);
+      padding: 10px 25px;
+      border-radius: 20px;
+      border: 1px solid black;
+      color: white;
+    }
+    &-text{
       cursor: pointer;
       border: 1px solid black;
-      padding: 10px;
+      padding: 10px 25px;
       border-radius: 20px;
-    }
-    .selected{
-      color: white;
-      background-color: rgb(29, 41, 44);
-      padding: 11px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-    span{
-      text-align: center;
-      margin: 0px 20px;
-      width: 100%;
-      transition: all 0.2s;
     }
   }
-
-  
 }

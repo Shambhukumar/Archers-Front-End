@@ -1,0 +1,46 @@
+.filters{
+  border-bottom: 1px solid black;
+  padding:  15px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // font-size: 1.2rem;
+  transition: all 0.5s;
+  &-checkbox{
+    .not-selected{
+      cursor: pointer;
+      border: 1px solid black;
+      padding: 10px;
+      border-radius: 20px;
+    }
+    .selected{
+      color: white;
+      background-color: rgb(29, 41, 44);
+      padding: 11px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    span{
+      text-align: center;
+      margin: 0px 20px;
+      width: 100%;
+      transition: all 0.2s;
+    }
+  }
+  &-archive{
+    font-size: 1.4rem;
+    padding-right: 20px;
+
+    select{
+      font-size: 1.2rem;
+      padding: 0px 10px;
+      text-align: center;
+    }
+  span{
+    padding:  10px;
+    font-weight: 600;
+
+  }
+  }
+  }
+  

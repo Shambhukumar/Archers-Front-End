@@ -20,7 +20,6 @@ const Login = (props) => {
   return (
     <form onSubmit={e=>login(e)}>
       <div className="login">
-        {console.log(props.auth.accesstoken)}
         <h1>Log In!</h1>
         <div className="login--input">
           <input type="email" id="email" placeholder="Enter Email Id" required></input>

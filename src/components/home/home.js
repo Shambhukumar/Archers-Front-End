@@ -5,16 +5,20 @@ import Card from "./cards/card";
 import axios from "axios";
 import { connect } from "react-redux";
 import { logoutUser } from "../../store/actions/auth";
+import Filters from "./filters/filters";
 import "./home.scss";
 
 const Home = (props) => {
   const [result, setResult] = useState();
-  const [loading, setloading]= useState(true);
+  const [loading, setloading]= useState();
   const [times, settimes] = useState(true);
   const [bbc,setbbc]=useState(true);
   const [wsj,setwsj]=useState(true);
+  const [filters,setFilters] =  useState(false);
   useEffect(() => {
-    getNews();
+    const d = new Date();
+  const date = d.toLocaleDateString();
+    getNews(date);
   }, []);
   const tok = localStorage.getItem("accesstoken");
   let token = null;
@@ -26,10 +30,9 @@ const Home = (props) => {
   const history = useHistory();
 
   let jsx;
-  const getNews = async () => {
-
-    const d = new Date();
-  const date = d.toLocaleDateString();
+  const getNews = async (date) => {
+setloading(true);
+    
     const data = await axios.post(
       process.env.REACT_APP_BASE_URL+"getdata",
       { date },
@@ -65,6 +68,9 @@ const Home = (props) => {
         case "bbc":
           setbbc(!bbc)
         break;
+        case "filters":
+         setFilters(!filters)
+        break;
       default:
         break;
     }
@@ -78,11 +84,11 @@ const Home = (props) => {
       wsj={result && result.data.data.wsj.WallStreetJurnal.WSJTopStories}
       toi={result && result.data.data.toi.TheTimesOfIndia.toiTopStories[0]["Latest-Stoies"]}
       />
-      <div className="home-class-checkbox">
-          <span className={ bbc ? "selected" : "not-selected"} onClick={()=>changeCardView("bbc")}>BBC News</span>
-          <span className={ wsj ? "selected" : "not-selected"} onClick={()=>changeCardView("wsj")}>The Wall Street Journal</span>
-          <span className={ times ? "selected" : "not-selected"} onClick={()=>changeCardView("times")}>The Times Of India</span>
+      <div className="home-class-filters">
+        <div className={filters ? "home-class-filters-text--selected": "home-class-filters-text"} onClick={e=>changeCardView("filters")}>Filters</div>
       </div>
+      {filters && <Filters bbc={bbc} wsj={wsj} times={times} changeCardView={changeCardView} getnews={getNews} date={result && result.data.data.date}/>}
+     
       {result && bbc && (
         <Card bbc={result.data.data.bbc.bbcData.bbccom} image={"bbc.png"} />
       )}
