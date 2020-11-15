@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // font-size: 1.2rem;
   transition: all 0.5s;
   &-checkbox{
     .not-selected{
@@ -28,13 +27,16 @@
     }
   }
   &-archive{
+    display: flex;
+    align-items: center;
     font-size: 1.4rem;
     padding-right: 20px;
-
     select{
       font-size: 1.2rem;
       padding: 0px 10px;
       text-align: center;
+      height: 40px;
+      background-color: transparent;
     }
   span{
     padding:  10px;
@@ -42,5 +44,10 @@
 
   }
   }
+  }
+  .dates{
+    // border: 1px dashed red;
+    // height: 40px;
+  
   }
   

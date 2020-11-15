@@ -8,7 +8,7 @@ const  Header = (props)=> {
   return (
     <div className="header">
       <div className="header-mini">
-      <h4>Hi, {localStorage.getItem("name").toLocaleUpperCase()}</h4>
+  {localStorage.getItem("name") &&<h4>Hi, {localStorage.getItem("name").toLocaleUpperCase()}</h4>}
       <span>Home</span>
       <span>Accout Settings</span>
       <span className="header-mini-logout" onClick={() => props.logout()}>Log out</span>
