@@ -81,6 +81,7 @@ setloading(true);
   <div className="home-class">
       <Header logout={logout}  
       bbc={result && result.data.data.bbc.bbcData.bbccom} 
+      date={result && result.data.data.Updated_At}
       wsj={result && result.data.data.wsj.WallStreetJurnal.WSJTopStories}
       toi={result && result.data.data.toi.TheTimesOfIndia.toiTopStories[0]["Latest-Stoies"]}
       />

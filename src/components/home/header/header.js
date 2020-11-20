@@ -8,13 +8,19 @@ const  Header = (props)=> {
   return (
     <div className="header">
       <div className="header-mini">
+        {/* {console.log()} */}
+        <div className="header-name">
   {localStorage.getItem("name") &&<h4>Hi, {localStorage.getItem("name").toLocaleUpperCase()}</h4>}
+  <h4>
+    Today {Date().split(" ").splice(0,4).join(" ")}
+  </h4>
+  </div>
       <span>Home</span>
       <span>Accout Settings</span>
       <span className="header-mini-logout" onClick={() => props.logout()}>Log out</span>
       </div>
       <h1 className="header-text">The Archers</h1>
-      
+      {props.date && <h4 className="header-update-date">Last Updated: {props.date.split(" ").splice(0,5).join(" ")} IST</h4>}
       <div>
         <ul className="header-headline">
           <h4>
