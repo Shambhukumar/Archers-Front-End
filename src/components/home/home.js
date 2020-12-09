@@ -54,8 +54,9 @@ const Home = (props) => {
     if (data) {
       if (data.data.status === "Success") {
         setResult(data);
-        setloading(false);
+        
       }
+      setloading(false);
     }
   }
     
