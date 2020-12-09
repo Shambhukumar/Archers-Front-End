@@ -15,17 +15,19 @@ const Home = (props) => {
   const [bbc,setbbc]=useState(true);
   const [wsj,setwsj]=useState(true);
   const [filters,setFilters] =  useState(false);
+  const [token, setToken] = useState();
   useEffect(() => {
     const d = new Date();
   const date = d.toLocaleDateString();
     getNews(date);
   }, []);
+
   const tok = window.localStorage.getItem("accesstoken");
-  let token = null;
+ 
   if (props.user.accesstoken) {
-    token = props.user.accesstoken;
+    setToken(props.user.accesstoken);
   } else {
-    token = tok;
+    setToken(tok);
   }
   const history = useHistory();
 
@@ -101,7 +103,7 @@ const Home = (props) => {
       {result && times && (
         <Card toi={result.data.data.toi.TheTimesOfIndia.toiTopStories[0]} />
       )}
-    </div> : <div>Loding</div>
+    </div> : <div>Loading{token}</div>
   );
 };
 const MapStateToProps = (state) => {
