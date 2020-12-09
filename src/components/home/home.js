@@ -15,44 +15,53 @@ const Home = (props) => {
   const [bbc,setbbc]=useState(true);
   const [wsj,setwsj]=useState(true);
   const [filters,setFilters] =  useState(false);
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(null);
   useEffect(() => {
+    
     const d = new Date();
   const date = d.toLocaleDateString();
     getNews(date);
-  }, []);
 
-  const tok = window.localStorage.getItem("accesstoken");
- 
-  if (props.user.accesstoken) {
-    setToken(props.user.accesstoken);
-  } else {
-    setToken(tok);
-  }
+  }, [token]);
+
+
   const history = useHistory();
 
   let jsx;
   const getNews = async (date) => {
+    setToken("false")
+    const tok = window.localStorage.getItem("accesstoken");
+    if (props.user.accesstoken) {
+      console.log("i am here")
+      setToken(props.user.accesstoken);
+    } else {
+      setToken(window.localStorage.getItem("accesstoken"));
+      token && console.log("i am ", token)
+    }
     setloading(true);
-    
+  
+  if(token){
     const data = await axios.post(
       process.env.REACT_APP_BASE_URL+"getdata",
       { date },
       {
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: "Bearer " + `${token}`,
         },
       }
     );
+    
     if (data) {
       if (data.data.status === "Success") {
         setResult(data);
         setloading(false);
       }
     }
+  }
+    
   };
 
-  console.log(result);
+  console.log(token);
 
   const logout = () => {
     props.logoutUser();
