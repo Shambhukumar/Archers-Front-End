@@ -18,9 +18,9 @@ export const authUser = async (email, password, dispatch) => {
         password: password,
       }
     );
-    localStorage.setItem("accesstoken", logincheck.data.data.accesstoken);
-    localStorage.setItem("name", logincheck.data.data.user.name);
-    localStorage.setItem("email", logincheck.data.data.user.email);
+    window.localStorage.setItem("accesstoken", logincheck.data.data.accesstoken);
+    window.localStorage.setItem("name", logincheck.data.data.user.name);
+    window.localStorage.setItem("email", logincheck.data.data.user.email);
     console.log(logincheck);
     return dispatch({ type: AUTH_USER, payload: logincheck });
   } catch (e) {
@@ -56,9 +56,9 @@ export const SignupUser = async (
       }
     );
     // console.log(logincheck);
-    localStorage.setItem("accesstoken", logincheck.data.data.accesstoken);
-    localStorage.setItem("name", logincheck.data.data.user.name);
-    localStorage.setItem("email", logincheck.data.data.user.email);
+   window.localStorage.setItem("accesstoken", logincheck.data.data.accesstoken);
+   window.localStorage.setItem("name", logincheck.data.data.user.name);
+   window.localStorage.setItem("email", logincheck.data.data.user.email);
 
     return dispatch({ type: AUTH_USER, payload: logincheck });
   } catch (e) {
