@@ -113,7 +113,7 @@ const Home = (props) => {
       {result && times && (
         <Card toi={result.data.data.toi.TheTimesOfIndia.toiTopStories[0]} />
       )}
-    </div> : <div>Loading{token}</div>
+    </div> : <div>Loading{result}</div>
   );
 };
 const MapStateToProps = (state) => {
