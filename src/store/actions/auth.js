@@ -100,8 +100,8 @@ export const setErrorNull = (dispatch) => {
 };
 
 export const logoutUser = (dispatch) => {
-  localStorage.removeItem("accesstoken");
-  localStorage.removeItem("name");
-  localStorage.removeItem("email");
+  window.localStorage.removeItem("accesstoken");
+  window.localStorage.removeItem("name");
+  window.localStorage.removeItem("email");
   return dispatch({ type: AUTH_LOGOUT, payload: null });
 };

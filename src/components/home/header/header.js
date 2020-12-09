@@ -10,7 +10,7 @@ const  Header = (props)=> {
       <div className="header-mini">
         {/* {console.log()} */}
         <div className="header-name">
-  {localStorage.getItem("name") &&<h4>Hi, {localStorage.getItem("name").toLocaleUpperCase()}</h4>}
+   { window.localStorage.getItem("name") &&<h4>Hi, {window.localStorage.getItem("name").toLocaleUpperCase()}</h4>}
   <h4>
     Today {Date().split(" ").splice(0,4).join(" ")}
   </h4>

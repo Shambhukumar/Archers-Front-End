@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 
 const Signup=(props)=> {
   const history = useHistory();
-    const token = localStorage.getItem("accesstoken");
+    const token = window.localStorage.getItem("accesstoken");
   (props.auth.isAuthenticated || token) && history.push("/home")
   const signupUser = (e)=>{
     e.preventDefault()

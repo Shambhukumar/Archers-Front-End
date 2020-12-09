@@ -20,7 +20,7 @@ const Home = (props) => {
   const date = d.toLocaleDateString();
     getNews(date);
   }, []);
-  const tok = localStorage.getItem("accesstoken");
+  const tok = window.localStorage.getItem("accesstoken");
   let token = null;
   if (props.user.accesstoken) {
     token = props.user.accesstoken;
