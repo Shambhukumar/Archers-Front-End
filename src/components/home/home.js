@@ -10,7 +10,7 @@ import "./home.scss";
 
 const Home = (props) => {
   const [result, setResult] = useState();
-  const [loading, setloading]= useState();
+  const [loading, setloading]= useState(true);
   const [times, settimes] = useState(true);
   const [bbc,setbbc]=useState(true);
   const [wsj,setwsj]=useState(true);
@@ -31,7 +31,7 @@ const Home = (props) => {
 
   let jsx;
   const getNews = async (date) => {
-setloading(true);
+    setloading(true);
     
     const data = await axios.post(
       process.env.REACT_APP_BASE_URL+"getdata",
@@ -77,7 +77,7 @@ setloading(true);
   }
 
   return (
-    !loading &&
+    !loading ?
   <div className="home-class">
       <Header logout={logout}  
       bbc={result && result.data.data.bbc.bbcData.bbccom} 
@@ -101,7 +101,7 @@ setloading(true);
       {result && times && (
         <Card toi={result.data.data.toi.TheTimesOfIndia.toiTopStories[0]} />
       )}
-    </div>
+    </div> : <div>Loding</div>
   );
 };
 const MapStateToProps = (state) => {
