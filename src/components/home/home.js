@@ -42,7 +42,7 @@ const Home = (props) => {
   
   if(token){
     const data = await axios.post(
-      process.env.REACT_APP_BASE_URL+"getdata",
+     "https://cors-anywhere.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
       { date },
       {
         headers: {
@@ -89,7 +89,7 @@ const Home = (props) => {
   }
 
   return (
-    !loading ?
+    !loading ?  
   <div className="home-class">
       <Header logout={logout}  
       bbc={result && result.data.data.bbc.bbcData.bbccom} 
@@ -113,7 +113,7 @@ const Home = (props) => {
       {result && times && (
         <Card toi={result.data.data.toi.TheTimesOfIndia.toiTopStories[0]} />
       )}
-    </div> : <div>Loading{ result && JSON.stringify(result.data.data.bbc.bbcData.bbccom)}</div>
+    </div> : <div>Loading{ result && JSON.stringify(result)}</div>
   );
 };
 const MapStateToProps = (state) => {
