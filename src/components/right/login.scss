@@ -69,6 +69,9 @@ input[type=password]{
    border: none;
    border: 1px solid #a3a1a1;
    width: 30vw;
+   @media (max-width: 850px){
+    width: 70vw;
+  }
    height: 45px;
    padding-left: 55px;
    background-color: #e0e0e08a;

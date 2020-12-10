@@ -6,6 +6,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { logoutUser } from "../../store/actions/auth";
 import Filters from "./filters/filters";
+import Loader from "./Loader/Loader";
 import "./home.scss";
 
 const Home = (props) => {
@@ -113,7 +114,7 @@ const Home = (props) => {
       {result && times && (
         <Card toi={result.data.data.toi.TheTimesOfIndia.toiTopStories[0]} />
       )}
-    </div> : <div>Loading{ result && JSON.stringify(result)}</div>
+    </div> : <Loader/>
   );
 };
 const MapStateToProps = (state) => {

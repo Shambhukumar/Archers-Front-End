@@ -11,13 +11,17 @@ const  Header = (props)=> {
         {/* {console.log()} */}
         <div className="header-name">
    { window.localStorage.getItem("name") &&<h4>Hi, {window.localStorage.getItem("name").toLocaleUpperCase()}</h4>}
-  <h4>
-    Today {Date().split(" ").splice(0,4).join(" ")}
-  </h4>
+  
   </div>
-      <span>Home</span>
-      <span>Accout Settings</span>
-      <span className="header-mini-logout" onClick={() => props.logout()}>Log out</span>
+  <div> 
+  <span>
+    Today {Date().split(" ").splice(0,4).join(" ")}
+  </span>
+  </div>
+  <div style={{paddingRight: "20px"}}>
+  <span className="header-mini-logout" onClick={() => props.logout()}>Log out</span>
+  </div>
+     
       </div>
       <h1 className="header-text">The Archers</h1>
       {props.date && <h4 className="header-update-date">Last Updated: {props.date.split(" ").splice(0,5).join(" ")} IST</h4>}
