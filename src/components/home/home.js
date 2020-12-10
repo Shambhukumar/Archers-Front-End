@@ -44,7 +44,7 @@ const Home = (props) => {
       setloading(true);
     
     if(token){
-      alert("i am in post")
+    
       const data = await axios.post(
        "https://cors-anywhere.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
         { date },
@@ -56,6 +56,7 @@ const Home = (props) => {
       );
       
       if (data) {
+        alert(data.data.status);
         if (data.data.status === "Success") {
           setResult(data);
           
