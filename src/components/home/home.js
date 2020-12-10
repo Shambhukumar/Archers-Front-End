@@ -54,9 +54,9 @@ const Home = (props) => {
           },
         }
       );
-      
+      alert(data);
       if (data) {
-        alert(data.data.status);
+        
         if (data.data.status === "Success") {
           setResult(data);
           
