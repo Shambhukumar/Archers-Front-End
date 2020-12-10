@@ -31,7 +31,7 @@ const Home = (props) => {
   let jsx;
   const getNews = async (date) => {
     try{
-      alert("working");
+      // alert("working");
       setToken("false")
       const tok = window.localStorage.getItem("accesstoken");
       if (props.user.accesstoken) {
@@ -44,7 +44,6 @@ const Home = (props) => {
       setloading(true);
     
     if(token){
-    
       const data = await axios.post(
        "https://cors-anywhere.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
         { date },
@@ -54,12 +53,10 @@ const Home = (props) => {
           },
         }
       );
-      alert(data);
+      // alert(data);
       if (data) {
-        
         if (data.data.status === "Success") {
           setResult(data);
-          
         }
         setloading(false);
       }
