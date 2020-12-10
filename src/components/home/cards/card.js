@@ -105,7 +105,7 @@ else if(props.toi){
     <ul className="toi-top">
       <li>Top Stories</li>
       {props.toi["Top-Stories"].map((e,el)=>{
-        return <li><a href={e.link}>{e.title}</a></li>
+        return <li key={el}><a href={e.link}>{e.title}</a></li>
       })}
       
     </ul>
@@ -113,7 +113,7 @@ else if(props.toi){
     <li>Latest Stories</li>
       {props.toi["Latest-Stoies"].map((e,el)=>{
         if(el < 15){
-          return <li><a href={e.link}>{e.title}</a></li>
+          return <li key={el}><a href={e.link}>{e.title}</a></li>
         }
       })}
     </ul>

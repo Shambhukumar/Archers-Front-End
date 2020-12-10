@@ -30,40 +30,47 @@ const Home = (props) => {
 
   let jsx;
   const getNews = async (date) => {
-    setToken("false")
-    const tok = window.localStorage.getItem("accesstoken");
-    if (props.user.accesstoken) {
-      console.log("i am here")
-      setToken(props.user.accesstoken);
-    } else {
-      setToken(window.localStorage.getItem("accesstoken"));
-      token && console.log("i am ", token)
-    }
-    setloading(true);
-  
-  if(token){
-    const data = await axios.post(
-     "https://cors-anywhere.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
-      { date },
-      {
-        headers: {
-          Authorization: "Bearer " + `${token}`,
-        },
+    try{
+      alert("working");
+      setToken("false")
+      const tok = window.localStorage.getItem("accesstoken");
+      if (props.user.accesstoken) {
+        // console.log("i am here")
+        setToken(props.user.accesstoken);
+      } else {
+        setToken(window.localStorage.getItem("accesstoken"));
+        // token && console.log("i am ", token)
       }
-    );
+      setloading(true);
     
-    if (data) {
-      if (data.data.status === "Success") {
-        setResult(data);
-        
+    if(token){
+      const data = await axios.post(
+       "https://cors-anywhere.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
+        { date },
+        {
+          headers: {
+            Authorization: "Bearer " + `${token}`,
+          },
+        }
+      );
+      
+      if (data) {
+        if (data.data.status === "Success") {
+          setResult(data);
+          
+        }
+        setloading(false);
       }
-      setloading(false);
     }
-  }
+    }catch(e){
+      console.log(e);
+      alert(e)
+    }
+    
     
   };
 
-  console.log(token);
+  // console.log(token);
 
   const logout = () => {
     props.logoutUser();

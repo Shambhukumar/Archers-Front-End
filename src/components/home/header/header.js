@@ -30,17 +30,17 @@ const  Header = (props)=> {
           <h4>
         <span>BBC:</span> {props.bbc && props.bbc.map((e,el)=>{
               if(el > 16 && el < 25){
-              return<a href={e.link}>{e.title}</a>
+              return<a href={e.link} key={el}>{e.title}</a>
               }
         })}
         <span>The Wall Street Journal</span>{props.wsj && props.wsj.map((e,el)=>{
               if(el > 19 && el < 29){
-              return <a href={e.link}>{e.title}</a>
+              return <a href={e.link} key={el} >{e.title}</a>
               }
         })}
         <span>The Times Of India</span>{props.toi && props.toi.map((e,el)=>{
               if(el > 15 && el < 26){
-              return <a href={e.link}>{e.title}</a>
+              return <a href={e.link} key={el}>{e.title}</a>
               }
         })}
         </h4>
