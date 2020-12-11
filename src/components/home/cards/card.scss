@@ -42,8 +42,8 @@
 
     &-li {
       &-images {
-        min-height: 18vh; //change when responsive
-        height: 100%;
+        // min-height: 18vh; //change when responsive
+        // height: 100%;
         &--text {
           overflow: hidden;
           background: linear-gradient(
@@ -157,7 +157,7 @@
       z-index: 2;
       font-size: 1.2rem;
       padding-left: 5px;
-      width: 99%;
+      width: 100%;
       p {
         font-size: 1.1rem;
         padding: 10px 5px;

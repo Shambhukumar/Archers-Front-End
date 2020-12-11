@@ -1,0 +1,33 @@
+.App{
+  @media (min-width: 1800px){
+  width: 100%;
+  }
+  /* max-width: 1600px; */
+  /* position: relative; */
+  background-color: rgba(253, 253, 253, 0.993);
+}
+
+.main{
+  
+  @media (min-width: 1800px){
+    position: absolute;
+    max-width: 1800px;
+    /* top: 50%; */
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  
+  
+  /* margin-left: 10vw; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  
+  /* display: inline-block; */
+  
+}

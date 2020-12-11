@@ -87,13 +87,14 @@ video {
   font-family: 'Nunito Sans', sans-serif;
 }
 html,body{
+  
   @media (max-width: 1100px) {
     font-size: 12.5px ;
   }
   @media (max-width: 400px) {
     font-size: 11px ;
   }
-  background-color: rgba(255, 255, 255, 0.904);
+  background-color: rgb(255, 255, 255);
 }
 
 

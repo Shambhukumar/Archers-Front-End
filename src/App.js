@@ -4,15 +4,18 @@ import  Landing from "./components/landing";
 import PrivateRoute from "./components/route/privateRoute";
 import { BrowserRouter as Router,  Route, Redirect, Switch } from "react-router-dom";
 import Home from "./components/home/home";
-import './App.css';
+import './App.scss';
 const App = (props) =>{
   return (
     <Router>
     <Switch>
-    <PrivateRoute path="/home" component={Home}/>
+    
     <div className="App">
+      <div className="main">
+    <PrivateRoute path="/home" component={Home}/>
     <Route exact path="/" component={Landing}/>
     <Redirect to="/"/>
+    </div>
     </div>
     <Redirect to="/"/>
     </Switch>
