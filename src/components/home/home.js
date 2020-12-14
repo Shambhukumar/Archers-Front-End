@@ -45,7 +45,7 @@ const Home = (props) => {
     
     if(token){
       const data = await axios.post(
-      process.env.REACT_APP_BASE_URL+"getdata",
+      "https://git.heroku.com/young-tundra-49076.git"+process.env.REACT_APP_BASE_URL+"getdata",
         { date },
         {
           headers: {
