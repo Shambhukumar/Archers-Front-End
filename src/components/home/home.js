@@ -45,7 +45,7 @@ const Home = (props) => {
     
     if(token){
       const data = await axios.post(
-       "https://cors-anywhere.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
+      process.env.REACT_APP_BASE_URL+"getdata",
         { date },
         {
           headers: {
