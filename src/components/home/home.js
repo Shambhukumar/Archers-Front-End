@@ -18,9 +18,13 @@ const Home = (props) => {
   const [filters,setFilters] =  useState(false);
   const [token, setToken] = useState(null);
   useEffect(() => {
-    
-    const d = new Date();
-  const date = d.toLocaleDateString();
+const d = new Date();
+const dat = d.getDate();
+const month = d.getMonth() + 1;
+const year = d.getFullYear();
+const date = month + "/" + dat + "/" + year;
+console.log(date)
+  // const date = d.toLocaleDateString();
     getNews(date);
 
   }, [token]);
@@ -44,8 +48,9 @@ const Home = (props) => {
       setloading(true);
     
     if(token){
+      console.log(token)
       const data = await axios.post(
-      "https://young-tundra-49076.herokuapp.com/"+process.env.REACT_APP_BASE_URL+"getdata",
+      process.env.REACT_APP_BASE_URL+"getdata",
         { date },
         {
           headers: {
@@ -53,6 +58,7 @@ const Home = (props) => {
           },
         }
       );
+      console.log(data)
       // alert(data);
       if (data) {
         if (data.data.status === "Success") {
@@ -60,6 +66,7 @@ const Home = (props) => {
         }
         setloading(false);
       }
+      console.log(data)
     }
     }catch(e){
       console.log(e);
