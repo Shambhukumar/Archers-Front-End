@@ -7,7 +7,7 @@ const  Card = (props) => {
 
   return (
    <div className="bbc-card">
-     <img id="logo" src={require("../../img/bbcheading.png")}/>
+     <img alt="images" id="logo" src={require("../../img/bbcheading.png")}/>
     <ul className="bbc-card-ul">
       {props.bbc.map((e,el)=>{
 
@@ -21,10 +21,9 @@ const  Card = (props) => {
               {e.description && <p className="bbc-card-ul-li-p">{e.description}</p>}
             </div>
             {/* <img className="bbc-card-ul-placeholder"src={require("../../img/placeholder.png")} /> */}
-            {e.image ? <img className="bbc-card-ul-li-images--img" src={e.image.replace("{width}",624)}/>: <img src={require("../../img/placeholder.png")}/>}
+            {e.image ? <img alt="images" className="bbc-card-ul-li-images--img" src={e.image.replace("{width}",624)}/>: <img alt="images" src={require("../../img/placeholder.png")}/>}
             </div>
             </a>
-           
           </li>
         )
       }
@@ -42,7 +41,7 @@ const  Card = (props) => {
             <span className="bbc-card-ul-li-span">{e.title}</span>
             <p className="bbc-card-ul-li-p">{e.description}</p>
             </div>
-            {e.image ? <img src={e.image.replace("{width}",624)}/> : <img src={require("../../img/placeholder.png")}/>}
+            {e.image ? <img alt="images" src={e.image.replace("{width}",624)}/> : <img alt="images" src={require("../../img/placeholder.png")}/>}
             </a>
            
           </li>
@@ -59,7 +58,7 @@ const  Card = (props) => {
 else if(props.wsj){
   return(
     <div className="wsj">
-      <img src={require("../../img/wsjheading.png")}/>
+      <img alt="images" src={require("../../img/wsjheading.png")}/>
       <div className="wsj--ul">
       <ul className="wsj--ul--left">
       {props.wsj.map((e,el)=>{
@@ -100,7 +99,7 @@ else if(props.wsj){
 else if(props.toi){
   return(
   <div className="times-of-india">
-    <img src={require("../../img/toi.png")}/>
+    <img alt="images" src={require("../../img/toi.png")}/>
     <div className="toi">
     <ul className="toi-top">
       <li>Top Stories</li>

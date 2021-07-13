@@ -19,15 +19,9 @@ const Landing = (props)=> {
   return (
    
   <div className="home">
-        <div className="home--left">
-          <Intro/>
-        </div>
-        <div className="home--right">
-       {props.error && <div className="home--right-error">
-        <span>{props.message}</span>
-        </div>}
+      
        {login ? <Login signup={change} /> : <SignUp login={change}/> }
-        </div>
+        
   </div>
   )
 }

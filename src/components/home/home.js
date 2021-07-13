@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../store/actions/auth";
 import Filters from "./filters/filters";
 import Loader from "./Loader/Loader";
+import Signin from "../Modals/Signin/Signin"
 import "./home.scss";
 
 const Home = (props) => {
@@ -17,6 +18,7 @@ const Home = (props) => {
   const [wsj,setwsj]=useState(true);
   const [filters,setFilters] =  useState(false);
   const [token, setToken] = useState(null);
+  const [Sign, SetSignin] = useState(false)
   useEffect(() => {
 const d = new Date();
 const dat = d.getDate();
@@ -47,16 +49,11 @@ console.log(date)
       }
       setloading(true);
     
-    if(token){
+    
       console.log(token)
       const data = await axios.post(
       process.env.REACT_APP_BASE_URL+"getdata",
-        { date },
-        {
-          headers: {
-            Authorization: "Bearer " + `${token}`,
-          },
-        }
+        { date }
       );
       console.log(data)
       // alert(data);
@@ -67,7 +64,7 @@ console.log(date)
         setloading(false);
       }
       console.log(data)
-    }
+    
     }catch(e){
       console.log(e);
       alert(e)
@@ -103,13 +100,20 @@ console.log(date)
   }
 
   return (
-    !loading ?  
+    <div className="wrapper">
+      <div className="wrapper-modal">
+      { Sign && <Signin display={SetSignin} />}
+      </div>
+      
+   { !loading ?  
   <div className="home-class">
-      <Header logout={logout}  
+     
+      <Header 
       bbc={result && result.data.data.bbc.bbcData.bbccom} 
       date={result && result.data.data.Updated_At}
       wsj={result && result.data.data.wsj.WallStreetJurnal.WSJTopStories}
-      toi={result && result.data.data.toi.TheTimesOfIndia.toiTopStories[0]["Latest-Stoies"]}
+      display={SetSignin}
+      // toi={result && result.data.data.toi.TheTimesOfIndia.toiTopStories[0]["Latest-Stoies"]}
       />
       <div className="home-class-filters">
         <div className={filters ? "home-class-filters-text--selected": "home-class-filters-text"} onClick={e=>changeCardView("filters")}>Filters</div>
@@ -124,10 +128,12 @@ console.log(date)
         <Card wsj={result.data.data.wsj.WallStreetJurnal.WSJTopStories} />
       )}
 
-      {result && times && (
+      {/* {result && times && (
         <Card toi={result.data.data.toi.TheTimesOfIndia.toiTopStories[0]} />
-      )}
-    </div> : <Loader/>
+      )} */}
+    </div> : <Loader/>}
+     
+    </div>
   );
 };
 const MapStateToProps = (state) => {

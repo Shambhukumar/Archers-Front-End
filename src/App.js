@@ -9,11 +9,13 @@ const App = (props) =>{
   return (
     <Router>
     <Switch>
-    
+    <Route path="/registor" component={Landing}/>
     <div className="App">
       <div className="main">
-    <PrivateRoute path="/home" component={Home}/>
-    <Route exact path="/" component={Landing}/>
+      
+    {/* <PrivateRoute path="/home" component={Home}/> */}
+    <Route exact path="/" component={Home}/>
+   
     <Redirect to="/"/>
     </div>
     </div>

@@ -1,15 +1,26 @@
+.wrapper{
+  display: flex;
+  justify-content: center;
+  &-modal{
+    width: 100vw;
+    position: absolute;
+    z-index: 9999;
+    position: fixed;
+  }
+}
+
 .home-class{
+  width: 90vw;
+  max-width: 1600px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
   min-height: 100vh;
-  background-color:rgb(252, 249, 249);
-
-
   &-filters{
-    
     display: flex;
     padding: 5px;
-    background-color: rgb(252, 249, 249);
     justify-content: flex-end;
-    border-bottom: 1px solid black;
     &-text--selected{
       cursor: pointer;
       background-color: rgb(29, 41, 44);
