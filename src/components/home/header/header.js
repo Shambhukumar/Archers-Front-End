@@ -11,32 +11,26 @@ const Header = (props) => {
 
   const Account = () => {
     return (
-      <div><span onClick={() => props.display(true)}>Sign In</span> / <span>Sign Up</span></div>
+      <div className="header-menu-account-content-buttons" onClick={() => props.display(true)}><div>Sign In</div></div>
     )
   }
   return (
     <div className="header">
-      {/* { Sign && <Signin display={SetSignin}/>} */}
-      {/* <div className="header-mini">
-       
-        <div className="header-name">
-          {window.localStorage.getItem("name") && <h4>Hi, {window.localStorage.getItem("name").toLocaleUpperCase()}</h4>}
-
-        </div>
-        <div>
-          <span>
-            Today {Date().split(" ").splice(0, 4).join(" ")}
-          </span>
-        </div>
-        <div style={{ paddingRight: "20px" }}>
-          <span className="header-mini-logout" onClick={() => props.logout()}>Log out</span>
-        </div>
-
-      </div> */}
       <div className="header-menu">
         <div className="header-logo">
           <div className="header-text"><span>The</span>Archers</div>
           <div><img alt="the-bow-and-arrow" className="header-text-img" src={require("../../img/bow-and-arrow.png")} /></div>
+        </div>
+        <div className="header-menu-links">
+          <ul className="header-menu-links-list">
+            <li>World</li>
+            <li>Entertainment</li>
+            <li>Style</li>
+            <li>Travel</li>
+            <li>Sports</li>
+            <li>Business</li>
+            <li>Politics</li>
+          </ul>
         </div>
 
         <div className="header-menu-account">
