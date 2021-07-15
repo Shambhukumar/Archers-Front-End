@@ -8,56 +8,57 @@ import {connect} from "react-redux";
 const Signup=(props)=> {
   const history = useHistory();
     const token = window.localStorage.getItem("accesstoken");
-  (props.auth.isAuthenticated || token) && history.push("/home")
+  (props.auth.isAuthenticated || token) && history.push("/")
   const signupUser = (e)=>{
     e.preventDefault()
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
     const c_password = document.getElementById("c-password").value
-    const firstname = document.getElementById("f-name").value
-    const lastname = document.getElementById("l-name").value
-    props.SignupUser(firstname + " " +lastname, email,password,c_password);
+    const name = document.getElementById("name").value
+    props.SignupUser(name, email,password,c_password);
 
   }
     
   return (
+    <div className="App-account">
     <form onSubmit={e=>signupUser(e)}>
-      <div className="signup">
-        <h1>Sign Up!</h1>
-        <div className="signup--input--name">
-          <input type="text" id="f-name" placeholder="First name" required></input>
-          <input type="text" id="l-name" placeholder="Last name" required></input>
+      <div className="registor">
+      <div className="form-registor">
+        <h1 className="form-registor-hero">Archers</h1>
+        <h1>Registor</h1>
+        <div className="form-registor-signup-text"><span>Already have an account?</span> <Link to="/signin" className="form-registor-signup-text-button">Log In</Link></div>
+        <div className="form-registor-name">
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Display Name" required></input>
+         
         </div>
-        <div className="signup--input--email">
-          <input type="email" id="email" placeholder="Email" required></input>
+        <div className="form-registor-email">
+          <label>Email address</label>
+          <input type="email" id="email" placeholder="Enter Email Id" required></input>
         </div>
-        <div className="signup--input--password">
-          <input
-            type="password"
-            placeholder="Password"
-            className="signup--input--password-1"
-            required
-            id="password"
-          ></input>
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="signup--input--password-2"
-            required
-            id="c-password"
-          ></input>
+        <div className="form-registor-password">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Enter Password" required></input>
+         
         </div>
-        <div className="signup--input--signup">
-          <button> Sign Up</button>
+        <div className="form-registor-password">
+          <label>Confirm Password</label>
+          <input type="password" id="c-password" placeholder="Confirm Password" required></input>
+         
         </div>
-        <div>
-          <span>Or</span>
-        </div>
-        <div className="signup--input--login">
-          <button onClick={props.login}> Login</button>
+        <div className="form-registor-action">
+          <div className="form-registor-action-forgot">
+            <span>Forgot Password?</span>
+          </div>
+          <div className="form-registor-action-button">
+            <button><img alt="person img" src={require("../img/name.png")} />Sign in</button>
+          </div>
+
         </div>
       </div>
+      </div>
     </form>
+    </div>
   );
 }
 

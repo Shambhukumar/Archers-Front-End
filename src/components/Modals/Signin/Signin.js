@@ -3,7 +3,21 @@ import {Link} from "react-router-dom";
 import "./Signin.scss"
 import PersonImg from "../../img/person.svg"
 import Closs from "../../img/cross.svg";
+import { useHistory,  Redirect } from "react-router-dom"
+// import "./login.scss";
+import { authUser } from "../../../store/actions/auth";
+import { connect } from "react-redux";
+
 function Signin(props) {
+    const history = useHistory();
+    const token = window.localStorage.getItem("accesstoken");
+    (props.auth.isAuthenticated || token) && history.go(0)
+    const login = async (e) => {
+      e.preventDefault()
+      const email = document.getElementById("email").value
+      const password = document.getElementById("password").value
+      props.authUser(email, password);
+    }
     return (
         <div>
             <div className="modal">
@@ -21,17 +35,17 @@ function Signin(props) {
                         
                     </hr>
                     </div>
-                    <form className="form">
+                    <form onSubmit={e => login(e)} className="form">
                         <div className="form-signin">
                             <h1>Log In</h1>
                             <div className="form-signin-signup-text"><span>Need a Archers Account?</span> <Link to="/registor" className="form-signin-signup-text-button">Sign Up</Link></div>
                             <div className="form-signin-email">
                                 <label>Email address</label>
-                                <input type="email" id="" placeholder="Enter Email Id" required></input>
+                                <input type="email" id="email" placeholder="Enter Email Id" required></input>
                             </div>
                             <div className="form-signin-password">
                             <label>Password</label>
-                                <input type="password" id="" placeholder="Enter Password" required></input>
+                                <input type="password" id="password" placeholder="Enter Password" required></input>
                             </div>
                             <div className="form-signin-action">
                             <div className="form-signin-action-forgot">
@@ -55,7 +69,18 @@ function Signin(props) {
     )
 }
 
+const MapStateToProps = state => {
+    return {
+      auth: state.user,
+      user: state.user.userdata
+    }
+  }
+  
+  const MapDespatchToProps = dispatch => {
+    return {
+      authUser: (email, password) => authUser(email, password, dispatch)
+    }
+  }
 
-
-export default Signin
+export default connect(MapStateToProps, MapDespatchToProps)(Signin)
 

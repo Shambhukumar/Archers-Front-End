@@ -1,17 +1,21 @@
 .login{
   position: relative;
-  height: 50vh;
-  max-height: 700px;
-  min-height: 550px;
-  min-width: 500px;
+  height: 550px;
+  width: 450px;
+  // padding: 1.5rem;
+ 
   
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   background-color: rgba(128, 128, 128, 0.151);
   border-radius: 10px;
   color: white;
+  @media (max-width: 700px){
+    width: 100vw;
+    height: 100vh;
+    }
   
   // h1{
   //   padding-bottom: 20px;
@@ -37,6 +41,7 @@
  .form{
   height: 100%;
   width: 100%;
+  // padding: 2.5rem;
 
   &-signin{
     &-hero{

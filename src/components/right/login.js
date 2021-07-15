@@ -12,7 +12,7 @@ const Login = (props) => {
   
   const history = useHistory();
   const token = window.localStorage.getItem("accesstoken");
-  (props.auth.isAuthenticated || token) && history.push("/home")
+  (props.auth.isAuthenticated || token) && history.push("/")
   const login = async (e) => {
     e.preventDefault()
     const email = document.getElementById("email").value
@@ -21,6 +21,7 @@ const Login = (props) => {
   }
 
   return (
+    <div className="App-account">
     <div className="login">
     <form onSubmit={e => login(e)} className="form">
       <div className="form-signin">
@@ -29,11 +30,11 @@ const Login = (props) => {
         <div className="form-signin-signup-text"><span>Don't have an Account?</span> <Link to="/registor" className="form-signin-signup-text-button">Sign Up</Link></div>
         <div className="form-signin-email">
           <label>Email address</label>
-          <input type="email" id="" placeholder="Enter Email Id" required></input>
+          <input type="email" id="email" placeholder="Enter Email Id" required></input>
         </div>
         <div className="form-signin-password">
           <label>Password</label>
-          <input type="password" id="" placeholder="Enter Password" required></input>
+          <input type="password" id="password" placeholder="Enter Password" required></input>
         </div>
         <div className="form-signin-action">
           <div className="form-signin-action-forgot">
@@ -46,6 +47,7 @@ const Login = (props) => {
         </div>
       </div>
     </form>
+    </div>
     </div>
   );
 };

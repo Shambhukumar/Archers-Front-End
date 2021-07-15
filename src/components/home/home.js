@@ -77,7 +77,7 @@ console.log(date)
 
   const logout = () => {
     props.logoutUser();
-    history.push("/");
+    history.go(0);
   };
 
   const changeCardView = (value)=>{
@@ -113,6 +113,7 @@ console.log(date)
       date={result && result.data.data.Updated_At}
       wsj={result && result.data.data.wsj.WallStreetJurnal.WSJTopStories}
       display={SetSignin}
+      logout={logout}
       // toi={result && result.data.data.toi.TheTimesOfIndia.toiTopStories[0]["Latest-Stoies"]}
       />
       <div className="home-class-filters">

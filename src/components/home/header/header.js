@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React, { useState } from 'react'
 import "./header.scss";
 import Signin from "../../Modals/Signin/Signin";
 
@@ -9,7 +9,7 @@ const Header = (props) => {
   console.log(name)
 
 
-  const Account = () =>{
+  const Account = () => {
     return (
       <div><span onClick={() => props.display(true)}>Sign In</span> / <span>Sign Up</span></div>
     )
@@ -35,15 +35,22 @@ const Header = (props) => {
       </div> */}
       <div className="header-menu">
         <div className="header-logo">
-        <div className="header-text"><span>The</span>Archers</div>
-        <div><img alt="the-bow-and-arrow" className="header-text-img" src={require("../../img/bow-and-arrow.png")} /></div>
-      </div>
-        
-      <div className="header-menu-account">
-        <div className="header-menu-account-content">
-         {name ? <span>Hi {name.toLocaleUpperCase()}</span> : <Account/>}
+          <div className="header-text"><span>The</span>Archers</div>
+          <div><img alt="the-bow-and-arrow" className="header-text-img" src={require("../../img/bow-and-arrow.png")} /></div>
         </div>
-      </div>
+
+        <div className="header-menu-account">
+          <div className="header-menu-account-content">
+            {name ? <span className="header-menu-account-content-username">Hi {name.toLocaleUpperCase()} 
+            <ul className="header-menu-account-content-username-actions">
+              <li onClick={() => props.logout()}>Sign out</li>
+              <li>Settings</li>
+              {/* <li>Log Out</li> */}
+            </ul>
+            </span> : <Account />}
+
+          </div>
+        </div>
       </div>
       {/* {props.date && <h4 className="header-update-date">Last Updated: {props.date.split(" ").splice(0, 5).join(" ")} IST</h4>} */}
       <div>

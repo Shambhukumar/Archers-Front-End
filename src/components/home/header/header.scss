@@ -23,6 +23,41 @@
           color: gray;
         }
       }
+
+      &-username{
+        // position: fixed;
+        &-actions{
+          font-size: 1rem;
+          color: #ccc;
+          list-style: none;
+          // background-color: rgba(133, 27, 27, 0.993);
+          background: linear-gradient(120deg, rgba(18, 18, 22, 0.938) 30%, rgba(83, 13, 13, 0.877) 99%);
+          text-align: center;
+          position: absolute;
+          width: 11.5rem;
+          z-index: 9999;
+          border-radius: 15px;
+
+          li{
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            
+            &:hover{
+              background-color: black;
+              z-index: 9999;
+              border-radius: 15px;
+            }
+          }
+        }
+        &-actions{
+          display: none;
+        }
+
+        &:hover &-actions{
+          display: block;
+        }
+      }
      }
       img{
         width: 2.5rem;
