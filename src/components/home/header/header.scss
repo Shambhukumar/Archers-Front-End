@@ -1,12 +1,13 @@
 .header {
   &-logo{
-    // width: 100%;
+    
     display: flex;
     align-items: center;
     // justify-content: space-between;
     // padding-rit: -5%;
   }
   &-menu{
+   
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,18 +15,20 @@
 
 
     &-links{
+     
       padding-top: 3rem;
       &-list{
         font-size: 1.2rem;
         display: flex;
         list-style: none;
         justify-content: space-evenly;
-        width: 50vw;
+       
         align-content: center;
         align-self: center;
         
         li{
           cursor: pointer;
+          margin-right: 2rem;
           &:hover{
             color: rgb(122, 14, 7);
           }
@@ -141,7 +144,7 @@
         padding-left: 10px;
         &:hover{
           animation-play-state: paused;
-          color: rgb(9, 130, 236);
+          color: rgb(122, 14, 7)
         }
       }
     }

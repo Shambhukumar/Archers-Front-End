@@ -26,8 +26,8 @@ const Login = (props) => {
     <form onSubmit={e => login(e)} className="form">
       <div className="form-signin">
         <h1 className="form-signin-hero">Archers</h1>
-        <h1>Log In</h1>
-        <div className="form-signin-signup-text"><span>Don't have an Account?</span> <Link to="/registor" className="form-signin-signup-text-button">Sign Up</Link></div>
+        <h2>Log in to your Archers account</h2>
+        <div className="form-signin-signup-text"><span>Don't have an Account?</span> <Link to="/registor" className="form-signin-signup-text-button">Registor</Link></div>
         <div className="form-signin-email">
           <label>Email address</label>
           <input type="email" id="email" placeholder="Enter Email Id" required></input>

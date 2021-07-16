@@ -25,7 +25,7 @@ const Signup=(props)=> {
       <div className="registor">
       <div className="form-registor">
         <h1 className="form-registor-hero">Archers</h1>
-        <h1>Registor</h1>
+        <h2>Create your Archers accoount</h2>
         <div className="form-registor-signup-text"><span>Already have an account?</span> <Link to="/signin" className="form-registor-signup-text-button">Log In</Link></div>
         <div className="form-registor-name">
           <label>Name</label>
@@ -51,7 +51,7 @@ const Signup=(props)=> {
             <span>Forgot Password?</span>
           </div>
           <div className="form-registor-action-button">
-            <button><img alt="person img" src={require("../img/name.png")} />Sign in</button>
+            <button><img alt="person img" src={require("../img/name.png")} />Registor</button>
           </div>
 
         </div>
