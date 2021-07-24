@@ -47,7 +47,7 @@ const Header = (props) => {
         </div>
       </div>
       {/* {props.date && <h4 className="header-update-date">Last Updated: {props.date.split(" ").splice(0, 5).join(" ")} IST</h4>} */}
-      <div>
+      {/* <div>
         <ul className="header-headline">
           <h4>
             <span>BBC:</span> {props.bbc && props.bbc.map((e, el) => {
@@ -67,7 +67,7 @@ const Header = (props) => {
             })}
           </h4>
         </ul>
-      </div>
+      </div> */}
     </div>
   )
 }
