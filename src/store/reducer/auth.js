@@ -1,9 +1,10 @@
-import { AUTH_START, AUTH_USER, AUTH_LOGOUT,AUTH_ERROR } from "../actions/auth";
+import {AUTH_USER, AUTH_LOGOUT,AUTH_ERROR,GET_CATEGORY } from "../actions/auth";
 
 const initState = {
   accesstoken: null,
   userdata: null,
   isAuthenticated: false,
+  category: null
 };
 const authReducer = (state = initState, { type, payload }) => {
   switch (type) {
@@ -13,9 +14,18 @@ const authReducer = (state = initState, { type, payload }) => {
         error: false,
         error_message: null,
         isAuthenticated: true,
-        accesstoken: payload.data.data.accesstoken,
         userdata: payload.data.data.user,
       };
+
+      case GET_CATEGORY:
+        return {
+          ...state,
+          error: false,
+          error_message: null,
+          isAuthenticated: payload.data.Authenticated,
+          userdata: payload.data.user,
+          category: payload.data.Category
+        }
     case AUTH_LOGOUT:
       return initState;
     case AUTH_ERROR:

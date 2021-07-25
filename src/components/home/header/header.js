@@ -1,11 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./header.scss";
-import Signin from "../../Modals/Signin/Signin";
+import {daybuy} from "../../../service/Utility";
 
 
 const Header = (props) => {
-  const name = window.localStorage.getItem("name");
-  // const [Sign, SetSignin] = useState(true);
+  const {BBC, Guardian, CNN, NYT} = props.news;
+
+  // console.log(props.data)
+  // console.log(CNN)
+  
+  const AllBrodcasterArray = [];
+
+  NYT && AllBrodcasterArray.push(NYT)
+  BBC && AllBrodcasterArray.push(BBC)
+  
+  Guardian && AllBrodcasterArray.push(Guardian)
+  CNN && AllBrodcasterArray.push(CNN)
+  const name = props.name;
   console.log(name)
 
 
@@ -14,24 +25,17 @@ const Header = (props) => {
       <div className="header-menu-account-content-buttons" onClick={() => props.display(true)}><div>Sign In</div></div>
     )
   }
+  const CategorieList = props.fetchcategory.reverse();
   return (
     <div className="header">
       <div className="header-menu">
+        <div className="header-menu-date">
+          <span>{daybuy()}</span>
+        </div>
         <div className="header-logo">
-          <div className="header-text"><span>The</span>Archers</div>
-          <div><img alt="the-bow-and-arrow" className="header-text-img" src={require("../../img/bow-and-arrow.png")} /></div>
+          <div className="header-text">The Archers</div>
         </div>
-        <div className="header-menu-links">
-          <ul className="header-menu-links-list">
-            <li>World</li>
-            <li>Entertainment</li>
-            <li>Style</li>
-            <li>Travel</li>
-            <li>Sports</li>
-            <li>Business</li>
-            <li>Politics</li>
-          </ul>
-        </div>
+       
 
         <div className="header-menu-account">
           <div className="header-menu-account-content">
@@ -39,35 +43,40 @@ const Header = (props) => {
             <ul className="header-menu-account-content-username-actions">
               <li onClick={() => props.logout()}>Sign out</li>
               <li>Settings</li>
-              {/* <li>Log Out</li> */}
             </ul>
             </span> : <Account />}
 
           </div>
         </div>
       </div>
-      {/* {props.date && <h4 className="header-update-date">Last Updated: {props.date.split(" ").splice(0, 5).join(" ")} IST</h4>} */}
-      {/* <div>
+      <div>
+      <div className="header-menu-links">
+          <ul className="header-menu-links-list">
+
+            {CategorieList.map((e,el)=>{
+              return <li className={e === props.category ? "header-menu-links-list-active": null}
+              onClick={()=>props.funSetcategory(e)}
+              >{e}</li>
+            })}
+          </ul>
+        </div>
+
         <ul className="header-headline">
           <h4>
-            <span>BBC:</span> {props.bbc && props.bbc.map((e, el) => {
-              if (el > 16 && el < 25) {
-                return <a href={e.link} key={el}>{e.title}</a>
-              }
-            })}
-            <span>The Wall Street Journal</span>{props.wsj && props.wsj.map((e, el) => {
-              if (el > 19 && el < 29) {
-                return <a href={e.link} key={el} >{e.title}</a>
-              }
-            })}
-            <span>The Times Of India</span>{props.toi && props.toi.map((e, el) => {
-              if (el > 15 && el < 26) {
-                return <a href={e.link} key={el}>{e.title}</a>
-              }
-            })}
+            {
+              AllBrodcasterArray.map((e,el)=>{
+                return (<span>
+                  <span className="header-headline-brodcaster">{e[0].brodcaster}</span>
+                  {e.map((e,el)=>{
+                    return <a href={e.anchorLink} key={el}>{e.anchorText}</a>
+                  })}
+                </span>)
+              })
+            }
           </h4>
         </ul>
-      </div> */}
+        
+      </div>
     </div>
   )
 }

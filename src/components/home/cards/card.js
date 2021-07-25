@@ -5,8 +5,8 @@ const  Card = (props) => {
 
   const {BBC, Guardian, CNN, NYT} = props.data;
 
-  // console.log(props.data)
-  console.log(CNN)
+  console.log(props.data)
+  // console.log(CNN)
 
   const AllBrodcasterArray = [];
 
@@ -17,18 +17,18 @@ const  Card = (props) => {
   CNN && AllBrodcasterArray.push(CNN)
 
 
-  if(BBC){
-const bbcSingleCard = (obj)=>{
+ 
+const CardSingleCard = (obj)=>{
   return (
-    <a href={obj.anchorLink} className="bbc-small-card">
-       <img alt="images" className="bbc-small-card-img" src={obj.Image.replace("{width}",324)}/>
-       <div className="bbc-small-card-cnn">
+    <a href={obj.anchorLink} className="Card-small-card">
+       <img alt="images" className="Card-small-card-img" src={obj.Image.replace("{width}",320)}/>
+       <div className="Card-small-card-cnn">
        {obj.brodcaster === "CNN"? obj.Linklist.map((e,el)=>{
          if(el > 0 && el < 3)
          return ( <a href={e.anchorLink}><h4>{e.anchorText}</h4></a>)
        }) :null}
        </div>
-       <a href={obj.anchorLink}><h4>{obj.anchorText}</h4></a>
+       <h4>{obj.anchorText}</h4>
        <p>{obj.pragraphText}</p>
     </a>
   )
@@ -39,16 +39,16 @@ const bbcSingleCard = (obj)=>{
       {AllBrodcasterArray.map((e,el)=>{
         console.log(e[0].brodcaster==="CNN")
         return(
-          <div>
+          <div className={`${e[0].brodcaster}`}>
             <div className="brodcaster">
              <img alt={`${e[0].brodcaster} logo img`} src={`/img/${e[0].brodcaster}.svg`}/>
               </div>
         
             
-      <div className="bbc">
-        <a href={e[0].anchorLink} className="bbc-heading-main-1">
+      <div className="Card">
+        <a href={e[0].anchorLink} className="Card-heading-main-1">
 
-          <div className="bbc-heading-main-1-cnn">
+          <div className="Card-heading-main-1-cnn">
           {e[0].brodcaster==="CNN" ? (
             e[0].Linklist.map((e,el)=>{
              return( <a href={e.anchorLink}>
@@ -61,29 +61,29 @@ const bbcSingleCard = (obj)=>{
             <h2>{e[0].anchorText}</h2>
             <p>{e[0].pragraphText}</p>
           </div>
-          <img alt="images" className="bbc-card-ul-li-images--img" src={e[0].Image.replace("{width}",524)}/>
+          <img alt="images" className="Card-card-ul-li-images--img" src={e[0].Image.replace("{width}",624)}/>
         </a>
-        <div className="bbc-heading-main-2">
+        <div className="Card-heading-main-2">
           {e.map((e,el)=>{
             if(el > 0 && el < 3)
-            return bbcSingleCard(e)
+            return CardSingleCard(e)
           })}
         </div>
-        <div className="bbc-heading-content-1">
+        <div className="Card-heading-content-1">
         {e.map((e,el)=>{
             if(el > 3 && el < 7)
-            return bbcSingleCard(e)
+            return CardSingleCard(e)
           })}
         </div>
-        <div className="bbc-heading-content-2">
+        <div className="Card-heading-content-2">
           <ul>
           {e.map((e,el)=>{
             if(el > 7 && el < 12)
-            return (<li>
-              <a href={e.brodcaster==="CNN" ?e.Linklist[0].anchorLink :e.anchorLink}>
-                <img alt="images" className="bbc-card-ul-li-images--img" src={e.Image.replace("{width}",124)}/>
+            return (<li key={el}>
+              <a href={e.brodcaster==="CNN" ?e.Linklist[0].anchorLink :e.anchorLink} key={el}>
+                <img alt="images" className="Card-card-ul-li-images--img" src={e.Image.replace("{width}",240)}/>
                 <span>{e.anchorText}</span>
-                {e.brodcaster==="CNN" ? <a href={e.Linklist[0].anchorLink}><span>{e.Linklist[0].anchorText}</span></a>: null}
+                {e.brodcaster==="CNN" ?<span>{e.Linklist[0].anchorText}</span>: null}
                 </a>
                 </li>)
           })}
@@ -91,11 +91,11 @@ const bbcSingleCard = (obj)=>{
           <ul>
           {e.map((e,el)=>{
             if(el > 12 && el < 17)
-            return <li>
-              <a href={e.brodcaster==="CNN" ?e.Linklist[0].anchorLink :e.anchorLink}>
-                <img alt="images" className="bbc-card-ul-li-images--img" src={e.Image.replace("{width}",124)}/>
+            return <li key={el}>
+              <a href={e.brodcaster==="CNN" ?e.Linklist[0].anchorLink :e.anchorLink} key={el} >
+                <img alt="images" className="Card-card-ul-li-images--img" src={e.Image.replace("{width}",240)}/>
                 <span>{e.anchorText}</span>
-                {e.brodcaster==="CNN" ? <a href={e.Linklist[0].anchorLink}><span>{e.Linklist[0].anchorText}</span></a>: null}
+                {e.brodcaster==="CNN" ? <span>{e.Linklist[0].anchorText}</span>: null}
                 </a>
             </li>
           })}
@@ -224,7 +224,7 @@ const bbcSingleCard = (obj)=>{
 //     </div>
 //   </div>
   )
-}
+
 
 return (
   <div>

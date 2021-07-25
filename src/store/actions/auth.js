@@ -3,6 +3,8 @@ export const AUTH_START = "AUTH_START";
 export const AUTH_USER = "AUTH_USER";
 export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const AUTH_ERROR = "AUTH_ERROR";
+export const GET_CATEGORY = "GET_CATEGORY";
+
 // const authStart = {
 //       type: AUTH_START,
 //       payload: "WORKING"
@@ -12,15 +14,13 @@ export const authUser = async (email, password, dispatch) => {
   try {
     console.log(email, password);
     const logincheck = await axios.post(
-      process.env.REACT_APP_BASE_URL + "login",
-      {
+      process.env.REACT_APP_BASE_URL + "user/login",
+      {data:{
         email: email,
         password: password,
-      }
+      }},
+      {withCredentials: true}
     );
-    window.localStorage.setItem("accesstoken", logincheck.data.data.accesstoken);
-    window.localStorage.setItem("name", logincheck.data.data.user.name);
-    window.localStorage.setItem("email", logincheck.data.data.user.email);
     console.log(logincheck);
     return dispatch({ type: AUTH_USER, payload: logincheck });
   } catch (e) {
@@ -37,6 +37,24 @@ export const authUser = async (email, password, dispatch) => {
     
   }
 };
+
+export const GetCategories = async(dispatch)=>{
+  try{
+    const payload = await axios.get(process.env.REACT_APP_BASE_URL+`news/category`, {withCredentials: true}) 
+    console.log(payload)
+
+    return dispatch({type: GET_CATEGORY, payload: payload.data})
+  }catch(e){
+    console.log(e)
+    return dispatch({
+      type: AUTH_ERROR,
+      payload: {
+        error: true,
+        message: "Cannot get Category",
+      },
+    });
+  }
+}
 
 export const SignupUser = async (
   name,
@@ -56,9 +74,6 @@ export const SignupUser = async (
       }
     );
     // console.log(logincheck);
-   window.localStorage.setItem("accesstoken", logincheck.data.data.accesstoken);
-   window.localStorage.setItem("name", logincheck.data.data.user.name);
-   window.localStorage.setItem("email", logincheck.data.data.user.email);
 
     return dispatch({ type: AUTH_USER, payload: logincheck });
   } catch (e) {
@@ -99,9 +114,20 @@ export const setErrorNull = (dispatch) => {
   });
 };
 
-export const logoutUser = (dispatch) => {
-  window.localStorage.removeItem("accesstoken");
-  window.localStorage.removeItem("name");
-  window.localStorage.removeItem("email");
-  return dispatch({ type: AUTH_LOGOUT, payload: null });
+export const logoutUser = async(dispatch) => {
+  try{
+    const logout = await axios.get(process.env.REACT_APP_BASE_URL + "user/logout",{withCredentials: true });
+    console.log(logout)
+    return dispatch({ type: AUTH_LOGOUT, payload: null });
+  }catch(e){
+    return dispatch({
+      type: AUTH_ERROR,
+      payload: {
+        error: true,
+        message: "not able to logout",
+      },
+    });
+  
+  }
+  
 };

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PrivateRoute from "./components/route/privateRoute";
 import Login from "./components/right/login";
 import Registor from "./components/right/signup";
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/home/home";
 import './App.scss';
 const App = (props) => {

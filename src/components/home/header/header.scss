@@ -5,6 +5,7 @@
     align-items: center;
     // justify-content: space-between;
     // padding-rit: -5%;
+    // font-size: 0.9rem;
   }
   &-menu{
    
@@ -12,25 +13,51 @@
     align-items: center;
     justify-content: space-between;
 
+    &-date{
+      width: 5%;
+      font-size: 1.1rem;
+      font-weight: 600;
+      span{
+        
+        padding-top: 0.5rem;
+        position: absolute;
+      }
 
+    }
 
     &-links{
-     
-      padding-top: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
       &-list{
-        font-size: 1.2rem;
+        font-size: 1rem;
         display: flex;
         list-style: none;
         justify-content: space-evenly;
        
         align-content: center;
         align-self: center;
-        
+        transition: all 0.5s ease-in;
+        &-active{
+          // color: rgb(172, 21, 10);
+          text-decoration: line-through;
+          text-decoration-color: red;
+          
+        }
         li{
           cursor: pointer;
           margin-right: 2rem;
           &:hover{
-            color: rgb(122, 14, 7);
+            // color: rgb(122, 14, 7);
+            text-decoration: line-through;
+            text-decoration-color: red;
+          }
+          &::first-letter{
+            text-transform: capitalize;
           }
         }
       }
@@ -41,7 +68,8 @@
 
     &-account{
      &-content{
-      padding-top: 2.5rem;
+       font-size: 0.8rem;
+      padding-top: 2rem;
       //  display: none;
       transition: all 0.5s ease-in;
       &-buttons{
@@ -59,7 +87,7 @@
         transition: all 0.1s ease-in;
         cursor: pointer;
         // color: rgb(77, 77, 77);
-        font-size: 1.1rem;
+        // font-size: 1.1rem;
         
         &:hover{
           color: gray;
@@ -116,9 +144,11 @@
     margin-top: 20px;
     height: 30px;
     overflow: hidden !important;
-    // background-color: rgba(105, 109, 109, 0.295);
-    // border-top: 1px solid black;
-    // border-bottom: 1px solid black;
+    &-brodcaster{
+      padding: 10px;
+      background-color: black;
+      color: white;
+    }
     h4{
       overflow: hidden;
       font-size: 1rem;
@@ -126,12 +156,8 @@
       width: max-content;
       line-height: 30px;
       text-align: center;
-      animation: heading 180s linear infinite;
-      span{
-        padding: 10px;
-        background-color: black;
-        color: white;
-      }
+      animation: heading 600s linear infinite;
+     
       &:hover{
         animation-play-state: paused;
       }
@@ -153,7 +179,7 @@
   }
   @keyframes heading {
     0% {
-      transform: translateX(12%);
+      transform: translateX(4%);
     }
     100% {
       transform: translateX(-100%);
@@ -201,18 +227,14 @@
     flex-direction: column;
     text-align: center;
     padding-top: 3rem;
+    padding-bottom: 10px;
     // padding-left: 5%;s
 
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-family: NewTimes;
     span{
       // flex-direction: ;
       font-family: NewTimes;
-    }
-    &-img{
-      display: inline;
-      width: 5rem;
-      margin-left: -2rem;
     }
    
   }
