@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useHistory} from "react-router-dom";
 import Header from "./header/header";
+import Footer from "./footer/footer";
 import Card from "./cards/card";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -102,9 +103,9 @@ const Home = (props) => {
       {/* {filters && <Filters bbc={bbc} wsj={wsj} times={times} changeCardView={changeCardView} getnews={getNews} date={result && result.data.data.date}/>} */}
      
         <Card data={result} image={"bbc.png"} />
-     
+        <Footer funSetcategory={SetCategory} category={props.user.category}/>
    </div> : <Loader/>}
-     
+   
     </div> 
   );
 };

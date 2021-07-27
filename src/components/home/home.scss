@@ -17,10 +17,13 @@
   width: 90vw;
   max-width: 1600px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   align-self: center;
   min-height: 100vh;
+
+
+  
   &-filters{
     display: flex;
     padding: 5px;

@@ -21,38 +21,33 @@
   }
 }
 
-.content{
-  width: inherit;
-  // display: grid;
-  // grid-template-rows: auto;
-  
-}
 .Card{
   display: grid;
+  // padding-bottom: 90px;
   grid-template-columns: 55% 21% 21%;
-  // grid-template-rows: 70%;
+  // grid-template-rows: repeat(3,  250px);
   column-gap: 2%;
  @media(max-width: 1070px){
   grid-template-columns: 65% 30%;
   // column-gap: 5%;
-  row-gap: 5%
+  row-gap: 1%
  }
  @media(max-width: 970px){
   grid-template-columns: 98%;
-  grid-template-rows: 60% 20%;
-  row-gap: 4%;
+  // grid-template-rows: 60% 20%;
+  row-gap: 1%;
   // column-gap: 5%;
  }
  @media(max-width: 700px){
   grid-template-columns: 98%;
   grid-template-rows: auto auto auto;
-  row-gap: 1%;
+  row-gap: 0%;
   // grid-template-rows: auto auto auto;
   // column-gap: 5%;
   // row-gap: 4%
  }
  &-ul{
-   width: inherit;
+  //  width: inherit;
   list-style: none;
   li{
     &:not(:first-child){
@@ -90,7 +85,7 @@
   }
   &-paragraph{
     img{
-      width: 100%;
+      width: 98%;
     }
     h4{
       padding-bottom: 5px;
@@ -117,6 +112,12 @@
       }
       display: grid;
       row-gap: 5%;
+      @media(max-width: 970px){
+        row-gap: 1%;
+      }
+      @media(max-width: 1070px){
+        row-gap: 1%;
+      }
       @media(max-width: 700px){
         row-gap: 1%;
       }
@@ -151,16 +152,16 @@
         column-gap: 10px;
         @media(max-width: 700px){
           grid-template-columns: repeat(2,1fr);
-          row-gap: 2%;
+          // row-gap: 1%;
         }
       }
     }
     &-2{
       width: inherit;
       display: grid;
-      row-gap: 5%;
+      // row-gap: 5%;
       @media(max-width: 970px){
-        row-gap: 1%;
+        // row-gap: 1%;
         width: 100%;
         img{
           width: 100%;
@@ -168,7 +169,7 @@
         grid-template-columns: 20% 80%;
         @media(max-width: 700px){
           grid-template-columns: 98%;
-          row-gap: 1%;
+          // row-gap: 1%;
           // padding-top: 20px;
         }
         ul{
@@ -221,9 +222,9 @@
     &-3{
       width: inherit;
       display: grid;
-      row-gap: 5%;
+      // row-gap: 5%;
       @media(max-width: 1070px){
-        row-gap: 1%;
+        // row-gap: 1%;
         // width: 100vw;
         img{
           width: 98%;
@@ -231,7 +232,7 @@
         grid-template-columns: 20% 80%;
         @media(max-width: 700px){
           grid-template-columns: 98%;
-          row-gap: 2%;
+          // row-gap: 2%;
         }
         column-gap: 0%;
         ul{
