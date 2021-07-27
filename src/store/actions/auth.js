@@ -12,7 +12,7 @@ export const GET_CATEGORY = "GET_CATEGORY";
 
 export const authUser = async (email, password, dispatch) => {
   try {
-    console.log(email, password);
+    // console.log(email, password);
     const logincheck = await axios.post(
       process.env.REACT_APP_BASE_URL + "user/login",
       {data:{
@@ -21,8 +21,8 @@ export const authUser = async (email, password, dispatch) => {
       }},
       {withCredentials: true}
     );
-    console.log(logincheck);
-    return dispatch({ type: AUTH_USER, payload: logincheck });
+    // console.log(logincheck);
+    return dispatch({ type: AUTH_USER, payload: logincheck.data });
   } catch (e) {
     console.log(e);
    
@@ -41,7 +41,7 @@ export const authUser = async (email, password, dispatch) => {
 export const GetCategories = async(dispatch)=>{
   try{
     const payload = await axios.get(process.env.REACT_APP_BASE_URL+`news/category`, {withCredentials: true}) 
-    console.log(payload)
+    // console.log(payload)
 
     return dispatch({type: GET_CATEGORY, payload: payload.data})
   }catch(e){
@@ -117,7 +117,7 @@ export const setErrorNull = (dispatch) => {
 export const logoutUser = async(dispatch) => {
   try{
     const logout = await axios.get(process.env.REACT_APP_BASE_URL + "user/logout",{withCredentials: true });
-    console.log(logout)
+    // console.log(logout)
     return dispatch({ type: AUTH_LOGOUT, payload: null });
   }catch(e){
     return dispatch({

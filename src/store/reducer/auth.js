@@ -11,17 +11,13 @@ const authReducer = (state = initState, { type, payload }) => {
     case AUTH_USER:
       return {
         ...state,
-        error: false,
-        error_message: null,
-        isAuthenticated: true,
-        userdata: payload.data.data.user,
+        isAuthenticated: payload.data.Authenticated,
+        userdata: payload.data.user,
       };
 
       case GET_CATEGORY:
         return {
           ...state,
-          error: false,
-          error_message: null,
           isAuthenticated: payload.data.Authenticated,
           userdata: payload.data.user,
           category: payload.data.Category

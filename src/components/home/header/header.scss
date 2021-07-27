@@ -1,3 +1,6 @@
+.model-responsive{
+  width: 100%;
+}
 .header {
   &-logo{
     
@@ -8,13 +11,31 @@
     // font-size: 0.9rem;
   }
   &-menu{
-   
+    &-responsive{
+      display: none;
+      cursor: pointer;
+      @media(max-width: 970px){
+        display: block;
+        padding-top: 2rem;
+        div{
+        width: 35px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 0;
+        }
+        
+      }
+    }
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     &-date{
       width: 5%;
+      @media(max-width: 970px) {
+        width: 10%;
+        
+      }
       font-size: 1.1rem;
       font-weight: 600;
       span{
@@ -22,7 +43,15 @@
         padding-top: 0.5rem;
         position: absolute;
       }
-
+      @media(max-width: 970px){
+      
+        &-date{
+          display: none;
+        }
+        
+      }
+      
+      
     }
 
     &-links{
@@ -59,6 +88,14 @@
           &::first-letter{
             text-transform: capitalize;
           }
+        }
+        @media(max-width: 970px){
+          display: none;
+        }
+      }
+      &-date{
+        @media(min-width: 970px) {
+          display: none;
         }
       }
     }
@@ -156,7 +193,7 @@
       width: max-content;
       line-height: 30px;
       text-align: center;
-      animation: heading 600s linear infinite;
+      animation: heading 1000s linear infinite;
      
       &:hover{
         animation-play-state: paused;
@@ -179,7 +216,7 @@
   }
   @keyframes heading {
     0% {
-      transform: translateX(4%);
+      transform: translateX(1%);
     }
     100% {
       transform: translateX(-100%);
@@ -231,6 +268,10 @@
     // padding-left: 5%;s
 
     font-size: 4rem;
+    @media(max-width: 700px) {
+      font-size: 3rem;
+      
+    }
     font-family: NewTimes;
     span{
       // flex-direction: ;

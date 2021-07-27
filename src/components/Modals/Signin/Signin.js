@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from "react-router-dom";
 import "./Signin.scss"
 import PersonImg from "../../img/person.svg"
@@ -9,14 +9,19 @@ import { authUser } from "../../../store/actions/auth";
 import { connect } from "react-redux";
 
 function Signin(props) {
+    // console.log(props.auth.isAuthenticated)
+    
     const history = useHistory();
-    const token = window.localStorage.getItem("accesstoken");
-    (props.auth.isAuthenticated || token) && history.go(0)
+    props.auth.isAuthenticated && history.go(0)
+   
     const login = async (e) => {
       e.preventDefault()
       const email = document.getElementById("email").value
       const password = document.getElementById("password").value
       props.authUser(email, password);
+    //   console.log(props.auth.isAuthenticated)
+    
+      
     }
     return (
         <div>

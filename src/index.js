@@ -4,15 +4,16 @@ import { Provider } from 'react-redux';
 import "./index.scss";
 import App from './App';
 import store from "./store/index";
-
 import * as serviceWorker from './serviceWorker';
 
 
 
 ReactDOM.render(
+ 
   <Provider store={store}>
     <App />
-    </Provider>,
+    </Provider>
+    ,
   document.getElementById('root')
 );
 

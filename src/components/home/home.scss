@@ -7,6 +7,10 @@
     z-index: 9999;
     position: fixed;
   }
+  &-category{
+    position: absolute;
+    width: 100vw;
+  }
 }
 
 .home-class{

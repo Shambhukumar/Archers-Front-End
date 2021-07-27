@@ -11,7 +11,7 @@ const Filters = (props) => {
   const getdate= async()=>{
     const data = await axios.get(process.env.REACT_APP_BASE_URL+"getalldates")
 
-console.log(data.data.data);
+// console.log(data.data.data);
 setdates(data.data.data)
 // const changesdates = () =>{
 //   const dates = data.data.data.map((e,el)=>{
@@ -30,7 +30,7 @@ setdates(data.data.data)
 // }
 // changesdates();
   }
-date && console.log(date);
+// date && console.log(date);
   return (
     <div className="filters">
       <div className="filters-checkbox">

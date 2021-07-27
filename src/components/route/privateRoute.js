@@ -5,7 +5,7 @@ export const PrivateRoute = ({
   isAuthenticated,
   component: Component,
 }) => {
-	console.log(isAuthenticated);
+	// console.log(isAuthenticated);
 const token = window.localStorage.getItem("accesstoken");
 	return (
 		<Route exact={true}
