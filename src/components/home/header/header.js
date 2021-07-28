@@ -14,6 +14,7 @@ const Header = (props) => {
   Guardian && AllBrodcasterArray.push(Guardian)
   CNN && AllBrodcasterArray.push(CNN)
   const name = props.name;
+  const time = props.news.time;
   // console.log(name)
 
   const Account = () => {
@@ -29,7 +30,10 @@ const Header = (props) => {
       </div>
       <div className="header-menu">
         <div className="header-menu-date">
-          <span className="header-menu-date-date">{daybuy()}</span>
+          <span className="header-menu-date-date">
+            {daybuy()}
+            <h6>UPDATED: {time} IST</h6>
+            </span>
           <div className="header-menu-responsive" onClick={()=>props.model(true)}>
             <div></div>
             <div></div>
@@ -52,7 +56,10 @@ const Header = (props) => {
       </div>
       <div>
       <div className="header-menu-links">
-      <h4 className="header-menu-links-date">{daybuy()}</h4>
+      <h4 className="header-menu-links-date">
+        {daybuy()}
+        <h4>Updated: {time} IST</h4>
+        </h4>
           <ul className="header-menu-links-list">
             {CategorieList.map((e,el)=>{
               if(e !=="home"){

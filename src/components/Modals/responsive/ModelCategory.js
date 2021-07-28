@@ -10,7 +10,7 @@ const ModelCategory =(props)=> {
     return (
         <div className="modelCategory">
             <div className="modelCategory-head">
-                <div></div>
+                <div className="modelCategory-head-empty"></div>
                 <div className="modelCategory-head-text">The Archers</div>
                 <div className="modelCategory-head-cross" onClick={()=> props.display(false)}>
                     <div className="modelCategory-head-cross-bar1"></div>

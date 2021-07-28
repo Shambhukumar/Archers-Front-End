@@ -1,13 +1,15 @@
 .modelCategory{
     width: 100vw;
     padding: 15px;
-    padding-top: 30px;
+    padding-top: 40px;
     height: 100vh;
     position: fixed;
     overflow-y: hidden;
     z-index: 99;
     background-color: rgb(231, 231, 231);
     &-head{
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
         &-text{
             font-family: newTimes;
             font-size: 3rem;
@@ -33,6 +35,9 @@
                 transform: rotate(45deg) translate(-8px, -8px);
               }
         }
+        &-empty{
+            width: 6%;
+        }
     }
     &-list{
         height: 85vh;
@@ -43,7 +48,7 @@
         align-items: center;
         
         li{
-            font-size: 2rem;
+            font-size: 1.5rem;
             padding: 10px;
             cursor: pointer;
             &:hover{
