@@ -32,7 +32,8 @@ const Home = (props) => {
   const getNews = async (date) => {
    
     try{
-      
+      // console.log(props.auth)
+      console.log(props.user)
       // console.log(props.user.category)
       setloading(true);
       const res = await axios.get(

@@ -2,7 +2,7 @@ import React from "react";
 import "./signup.scss";
 
 import {useHistory,Link,Redirect} from "react-router-dom"
-import {SignupUser}  from "../../store/actions/auth";
+import {SignupUser, setErrorNull}  from "../../store/actions/auth";
 import {connect} from "react-redux";
 
 const Signup=(props)=> {
@@ -10,6 +10,7 @@ const Signup=(props)=> {
     const token = window.localStorage.getItem("accesstoken");
   (props.auth.isAuthenticated || token) && history.push("/")
   const signupUser = (e)=>{
+    props.setErrorNull();
     e.preventDefault()
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
@@ -18,7 +19,11 @@ const Signup=(props)=> {
     props.SignupUser(name, email,password,c_password);
 
   }
-    
+  if(props.auth.error_message){
+    setTimeout(()=>{
+      props.setErrorNull()
+    }, 15000)
+  }
   return (
     <div className="App-account">
     <form onSubmit={e=>signupUser(e)}>
@@ -26,6 +31,7 @@ const Signup=(props)=> {
       <div className="form-registor">
         <h1 className="form-registor-hero">Archers</h1>
         <h2>Create your Archers accoount</h2>
+        { props.auth.error_message && <h4 className="form-registor-hero-error">{props.auth.error_message}</h4> }
         <div className="form-registor-signup-text"><span>Already have an account?</span> <Link to="/signin" className="form-registor-signup-text-button">Log In</Link></div>
         <div className="form-registor-name">
           <label>Name</label>
@@ -71,7 +77,8 @@ const MapStateToProps = state =>{
 
 const MapDespatchToProps = dispatch =>{
   return {
-    SignupUser: (name, email,password,c_password)=> SignupUser(name,email,password,c_password,dispatch)
+    SignupUser: (name, email,password,c_password)=> SignupUser(name,email,password,c_password,dispatch),
+    setErrorNull: () => setErrorNull(dispatch)
   }
 }
 

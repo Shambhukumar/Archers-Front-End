@@ -139,6 +139,11 @@
                 }
             }   
         }
+        &-error{
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgb(223, 14, 14);
+          }
     }
     input[type=email],
 input[type=password]{

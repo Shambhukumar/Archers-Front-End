@@ -47,6 +47,11 @@
     &-hero{
       font-family: NewTimes;
       font-size: 3.5rem;
+      &-error{
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgb(223, 14, 14);
+      }
     }
       height: inherit;
       display: flex;

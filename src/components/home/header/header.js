@@ -45,8 +45,11 @@ const Header = (props) => {
         </div>
         <div className="header-menu-account">
           <div className="header-menu-account-content">
-            {name ? <span className="header-menu-account-content-username">Hi {name.toLocaleUpperCase()} 
+            {name ? <span className="header-menu-account-content-username">Hi {name.toLocaleUpperCase()} <span className="header-menu-account-content-username-arrow"></span>
             <ul className="header-menu-account-content-username-actions">
+              <div className="header-menu-account-content-username-actions-pointy">
+
+              </div>
               <li onClick={() => props.logout()}>Sign out</li>
               <li>Settings</li>
             </ul>

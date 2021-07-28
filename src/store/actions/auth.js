@@ -25,7 +25,6 @@ export const authUser = async (email, password, dispatch) => {
     return dispatch({ type: AUTH_USER, payload: logincheck.data });
   } catch (e) {
     console.log(e);
-   
       return dispatch({
         type: AUTH_ERROR,
         payload: {
@@ -41,7 +40,7 @@ export const authUser = async (email, password, dispatch) => {
 export const GetCategories = async(dispatch)=>{
   try{
     const payload = await axios.get(process.env.REACT_APP_BASE_URL+`news/category`, {withCredentials: true}) 
-    // console.log(payload)
+    console.log(payload)
 
     return dispatch({type: GET_CATEGORY, payload: payload.data})
   }catch(e){
@@ -65,17 +64,20 @@ export const SignupUser = async (
 ) => {
   try {
     const logincheck = await axios.post(
-      process.env.REACT_APP_BASE_URL + "signup",
-      {
-        name: name,
+      process.env.REACT_APP_BASE_URL + "user/saveUser",
+      {data:{
+         name: name,
         email: email,
         password: password,
         conformPassowrd: confirmPassword,
       }
+       
+      },
+      {withCredentials: true }
     );
-    // console.log(logincheck);
+    console.log(logincheck);
 
-    return dispatch({ type: AUTH_USER, payload: logincheck });
+    return dispatch({ type: AUTH_USER, payload: logincheck.data });
   } catch (e) {
     if (e.response.status === 403) {
       return dispatch({
@@ -83,7 +85,7 @@ export const SignupUser = async (
         payload: {
           error: true,
           message:
-            "This email id is already registerd please try again with a new one!!!",
+            "This email id is already registerd with another user.",
         },
       });
     } else if (e.response.status === 401) {
@@ -92,7 +94,7 @@ export const SignupUser = async (
         payload: {
           error: true,
           message:
-            "Your password and confirm password should be the same please try again!!!",
+            "Your password and confirm password should be the same.",
         },
       });
     } else {

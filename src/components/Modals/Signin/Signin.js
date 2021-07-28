@@ -5,7 +5,7 @@ import PersonImg from "../../img/person.svg"
 import Closs from "../../img/cross.svg";
 import { useHistory,  Redirect } from "react-router-dom"
 // import "./login.scss";
-import { authUser } from "../../../store/actions/auth";
+import { authUser,setErrorNull } from "../../../store/actions/auth";
 import { connect } from "react-redux";
 
 function Signin(props) {
@@ -16,6 +16,7 @@ function Signin(props) {
    
     const login = async (e) => {
       e.preventDefault()
+      props.setErrorNull()
       const email = document.getElementById("email").value
       const password = document.getElementById("password").value
       props.authUser(email, password);
@@ -23,6 +24,11 @@ function Signin(props) {
     
       
     }
+    if(props.auth.error_message){
+        setTimeout(()=>{
+          props.setErrorNull()
+        }, 15000)
+      }
     return (
         <div>
             <div className="modal">
@@ -43,6 +49,7 @@ function Signin(props) {
                     <form onSubmit={e => login(e)} className="form">
                         <div className="form-signin">
                             <h1>Log In</h1>
+                            { props.auth.error_message && <h4 className="form-signin-error">{props.auth.error_message}</h4> }
                             <div className="form-signin-signup-text"><span>Need a Archers Account?</span> <Link to="/registor" className="form-signin-signup-text-button">Sign Up</Link></div>
                             <div className="form-signin-email">
                                 <label>Email address</label>
@@ -83,7 +90,8 @@ const MapStateToProps = state => {
   
   const MapDespatchToProps = dispatch => {
     return {
-      authUser: (email, password) => authUser(email, password, dispatch)
+      authUser: (email, password) => authUser(email, password, dispatch),
+      setErrorNull: () => setErrorNull(dispatch)
     }
   }
 
