@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./card.scss";
 import { daybuy } from "../../../service/Utility";
 
@@ -17,7 +17,7 @@ const Card = (props) => {
   Guardian && AllBrodcasterArray.push(Guardian)
   CNN && AllBrodcasterArray.push(CNN)
 
-
+const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, "NewYorkTimes": false})
 
   const CardSingleCard = (obj) => {
     return (
@@ -33,6 +33,38 @@ const Card = (props) => {
           <h4>{obj.anchorText}</h4>
           <p>{obj.pragraphText}</p>
         </a>
+      </div>
+    )
+  }
+
+  const viewMoreToggle = (brodcaster) =>{
+    setView({...view, [`${brodcaster}`]: !view[`${brodcaster}`]});
+    // console.log(view)
+  }
+
+  const ViewMoreContent = (e) =>{
+    if(!(e.length > 28)){
+      return
+    }
+    return (
+      <div className="content-view-card">
+            <div  className="content-view-card-text">
+              {!view[`${e[0].brodcaster}`] && <h4 onClick={()=>viewMoreToggle(e[0].brodcaster)}>View More</h4>}
+            </div>
+            
+                  {view[`${e[0].brodcaster}`] && (<div className="content-view-card-news"> 
+                    
+                    
+                    {e.map((e,el)=>{
+                      if(el > 17){
+                        return CardSingleCard(e)
+                      }
+                    })}
+                    
+                    </div>)}
+              <div  className="content-view-card-text">
+              {view[`${e[0].brodcaster}`] && <h4 onClick={()=>viewMoreToggle(e[0].brodcaster)}>View Less</h4>}
+              </div>
       </div>
     )
   }
@@ -123,133 +155,16 @@ const Card = (props) => {
                 </ul>
               </div>
             </div>
+            <div className="content-view">
+              
+          
+                  {ViewMoreContent(e)}
+
+            </div>
           </div>
         )
       })}
 
-    </div>
-
-
-    // ------------------------------------------- Old Code -------------------------------------------------------------
-
-    //    <div className="bbc-card">
-    //      <img alt="images" id="logo" src={require("../../img/bbcheading.png")}/>
-    //     <ul className="bbc-card-ul">
-    //       {props.bbc.map((e,el)=>{
-    //         console.log(e)
-    //         if(el <= 4){
-    //         return (
-    //           <li key={el} className={`bbc-card-ul-li-${el}`}>
-    //             <a href={e.anchorlink}>
-    //             <div className="bbc-card-ul-li-images">
-    //             <div className="bbc-card-ul-li-images--text">
-    //             <span className="bbc-card-ul-li-span"> <a href={e.anchorlink}>{e.anchorText}</a></span>
-    //               {e.pragraphText && <p className="bbc-card-ul-li-p">{e.pragraphText}</p>}
-    //             </div>
-    //             {/* <img className="bbc-card-ul-placeholder"src={require("../../img/placeholder.png")} /> */}
-    //             {e.Image ? <img alt="images" className="bbc-card-ul-li-images--img" src={e.Image.replace("{width}",624)}/>: <img alt="images" src={require("../../img/placeholder.png")}/>}
-    //             </div>
-    //             </a>
-    //           </li>
-    //         )
-    //       }
-    //       })}
-    //     </ul>
-    // {/* this is the other part of bbc */}
-    //     <ul className="bbc-card-ul-secondheading">
-    //       {props.bbc.map((e,el)=>{
-
-    //         if(el > 4){
-    //         return (
-    //           <li key={el} className={`bbc-card-ul-li-${el}`}>
-    //             <a href={e.anchorlink}>
-    //             <div className="bbc-card-ul-secondheading-item">
-    //             <span className="bbc-card-ul-li-span">{e.anchorText}</span>
-    //             <p className="bbc-card-ul-li-p">{e.pragraphText}</p>
-    //             </div>
-    //             {e.Image ? <img alt="images" src={e.Image.replace("{width}",624)}/> : <img alt="images" src={require("../../img/placeholder.png")}/>}
-    //             </a>
-
-    //           </li>
-    //         )
-    //       }
-    //       })}
-    //     </ul>
-
-    //    </div>
-    //   )
-
-    // }
-
-    // else if(props.wsj){
-    //   return(
-    //     <div className="wsj">
-    //       <img alt="images" src={require("../../img/wsjheading.png")}/>
-    //       <div className="wsj--ul">
-    //       <ul className="wsj--ul--left">
-    //       {props.wsj.map((e,el)=>{
-    //         if(el < 6){
-    //           return(<li key={el}>
-    //             <h3><a href={e.link}>{e.title}</a></h3>
-    //             <span>{e.description}</span>
-    //             </li>)
-    //         }
-
-    //       })}
-    //       </ul>
-    //       <ul className="wsj--ul--center">
-    //       {props.wsj.map((e,el)=>{
-    //         if(el > 6  && el < 12){
-    //           return(<li key={el}>
-    //             <h3><a href={e.link}>{e.title}</a></h3>
-    //             <span>{e.description}</span>
-    //             </li>)
-    //         }
-    //       })}
-    //       </ul>
-    //       <ul className="wsj--ul--right">
-    //       {props.wsj.map((e,el)=>{
-    //         if(el > 12 && el < 19){
-    //           return(<li key={el}>
-    //             <h3><a href={e.link}>{e.title}</a></h3>
-    //             <span>{e.description}</span>
-    //             </li>)
-    //         }
-    //       })}
-    //       </ul>
-    //       </div>
-    //     </div>
-    //   )
-    // }
-
-    // else if(props.toi){
-    //   return(
-    //   <div className="times-of-india">
-    //     <img alt="images" src={require("../../img/toi.png")}/>
-    //     <div className="toi">
-    //     <ul className="toi-top">
-    //       <li>Top Stories</li>
-    //       {props.toi["Top-Stories"].map((e,el)=>{
-    //         return <li key={el}><a href={e.link}>{e.title}</a></li>
-    //       })}
-
-    //     </ul>
-    //     <ul className="toi-latest">
-    //     <li>Latest Stories</li>
-    //       {props.toi["Latest-Stoies"].map((e,el)=>{
-    //         if(el < 15){
-    //           return <li key={el}><a href={e.link}>{e.title}</a></li>
-    //         }
-    //       })}
-    //     </ul>
-    //     </div>
-    //   </div>
-  )
-
-
-  return (
-    <div>
-      Working
     </div>
   )
 }
