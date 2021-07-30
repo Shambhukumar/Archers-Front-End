@@ -30,9 +30,12 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
                 return (<a href={e.anchorLink}><h4>{e.anchorText}</h4></a>)
             }) : null}
           </div>
+          <div className="Card-paragraph-text">
           <h4>{obj.anchorText}</h4>
+          </div>
+          </a>
           <p>{obj.pragraphText}</p>
-        </a>
+          
       </div>
     )
   }
@@ -93,9 +96,9 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
                             <h4>{e.anchorText}</h4>
                           </a>)
                         }
-                       })}</div>): null}
-                      <a href={e[0].anchorLink}><h2 className="Card-main-1-hero-container-text-anchor">{e[0].anchorText}</h2></a>
-                      <p className="Card-main-1-hero-container-text-para">{e[0].pragraphText}</p>
+                       })}</div>): (<React.Fragment> <a href={e[0].anchorLink}><h2 className="Card-main-1-hero-container-text-anchor">{e[0].anchorText}</h2></a>
+                       <p className="Card-main-1-hero-container-text-para">{e[0].pragraphText}</p> </React.Fragment>)}
+                     
                     </div>
                     <div>
                    <a href={e[0].anchorLink}> <img alt="images" className="Card-card-ul-li-images--img" src={e[0].Image.replace("{width}", 624)} /></a>
@@ -114,7 +117,7 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
 
 
               <div className="Card-main-2">
-                <div> 
+                <div className="Card-main-2-peragraph"> 
                 {e.map((e, el) => {
                   if (el > 0 && el < 2)
                     return CardSingleCard(e)
@@ -135,7 +138,7 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
               </div>
 
               <div className="Card-main-3">
-                <div> 
+               <div className="Card-main-3-peragraph"> 
                 {e.map((e, el) => {
                   if (el > 2 && el < 4)
                     return CardSingleCard(e)

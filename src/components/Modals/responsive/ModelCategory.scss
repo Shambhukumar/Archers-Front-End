@@ -1,7 +1,8 @@
 .modelCategory{
     width: 100vw;
     padding: 15px;
-    padding-top: 40px;
+    padding-top: 20px;
+    min-height: 700px;
     height: 100vh;
     position: fixed;
     overflow-y: hidden;
@@ -40,7 +41,8 @@
         }
     }
     &-list{
-        height: 85vh;
+        // height: 85vh;
+        overflow: scroll;
         list-style: none;
         display: flex;
         flex-direction: column;
