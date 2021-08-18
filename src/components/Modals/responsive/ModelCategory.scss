@@ -6,7 +6,7 @@
     height: 100vh;
     position: fixed;
     overflow-y: hidden;
-    z-index: 99;
+    z-index: 1000;
     background-color: rgb(231, 231, 231);
     &-head{
         padding-bottom: 10px;
@@ -42,7 +42,7 @@
     }
     &-list{
         // height: 85vh;
-        overflow: scroll;
+        // overflow: scroll;
         list-style: none;
         display: flex;
         flex-direction: column;

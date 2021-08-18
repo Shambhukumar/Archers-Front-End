@@ -52,7 +52,7 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
     return (
       <div className="content-view-card">
             <div  className="content-view-card-text">
-              {!view[`${e[0].brodcaster}`] && <h4 onClick={()=>viewMoreToggle(e[0].brodcaster)}>View More</h4>}
+              {!view[`${e[0].brodcaster}`] && <h4 onClick={()=>viewMoreToggle(e[0].brodcaster)} className="content-view-card-text-more">See More</h4>}
             </div>
             
                   {view[`${e[0].brodcaster}`] && (<div className="content-view-card-news"> 
@@ -66,7 +66,7 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
                     
                     </div>)}
               <div  className="content-view-card-text">
-              {view[`${e[0].brodcaster}`] && <h4 onClick={()=>viewMoreToggle(e[0].brodcaster)}>View Less</h4>}
+              {view[`${e[0].brodcaster}`] && <h4 onClick={()=>viewMoreToggle(e[0].brodcaster)} className="content-view-card-text-less">See Less</h4>}
               </div>
       </div>
     )
@@ -77,7 +77,8 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
       {AllBrodcasterArray.map((e, el) => {
         // console.log(e[0].brodcaster==="CNN")
         return (
-          <div className={`${e[0].brodcaster}`}>
+          
+          <div className={`content-${e[0].brodcaster}`}>
             <div className="brodcaster">
               <img alt={`${e[0].brodcaster} logo img`} src={`/img/${e[0].brodcaster}.svg`} /> <span>{daybuy()}</span>
             </div>
@@ -161,10 +162,11 @@ const [view, setView] = useState({"BBC": false, "Gurdian": false, "CNN": false, 
             <div className="content-view">
               
           
-                  {ViewMoreContent(e)}
+          {ViewMoreContent(e)}
 
-            </div>
+    </div>
           </div>
+          
         )
       })}
 

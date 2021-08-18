@@ -78,7 +78,8 @@ summary,
 time,
 mark,
 audio,
-video {
+video,
+html,body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -87,6 +88,7 @@ video {
   font-family: 'Nunito Sans', sans-serif;
 }
 html,body{
+  overflow-x: hidden;
   background-color: rgb(255, 255, 255);
   @media (max-width: 1400px){
     font-size: 14.5px;

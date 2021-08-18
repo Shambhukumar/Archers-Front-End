@@ -14,16 +14,13 @@
 }
 
 .home-class{
-  width: 90vw;
+  width: 100vw;
   max-width: 1600px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-self: center;
   min-height: 100vh;
-
-
-  
   &-filters{
     display: flex;
     padding: 5px;

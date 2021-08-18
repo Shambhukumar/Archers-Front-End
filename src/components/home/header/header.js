@@ -1,13 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "./header.scss";
 import {daybuy} from "../../../service/Utility";
 
-const Header = (props) => {
+const  Header = (props) => {
   const {BBC, Guardian, CNN, NYT} = props.news;
 
-  // console.log(props.data)
-  // console.log(CNN)
-  
+
   const AllBrodcasterArray = [];
   NYT && AllBrodcasterArray.push(NYT)
   BBC && AllBrodcasterArray.push(BBC)
@@ -15,7 +13,19 @@ const Header = (props) => {
   CNN && AllBrodcasterArray.push(CNN)
   const name = props.name;
   const time = props.news.time;
-  // console.log(name)
+useEffect(()=>{
+  const Nav = document.getElementById("nav")
+  const handleScroll=()=>{
+    const offset = window.scrollY;    
+    if(offset > 190){
+      Nav.classList.add("header-menu-links-scrolled");
+    }else{
+      Nav.classList.remove("header-menu-links-scrolled");
+    }
+  }
+    window.addEventListener("scroll",handleScroll)
+})
+
 
   const Account = () => {
     return (
@@ -58,7 +68,7 @@ const Header = (props) => {
         </div>
       </div>
       <div>
-      <div className="header-menu-links">
+      <div className="header-menu-links" id="nav">
       <h4 className="header-menu-links-date">
         {daybuy()}
         <h4>Updated: {time} IST</h4>
@@ -68,26 +78,28 @@ const Header = (props) => {
               if(e !=="home"){
                 return <li className={e === props.category ? "header-menu-links-list-active": null}
               onClick={()=>props.funSetcategory(e)}
-              >{e}</li>
+              key={el} >{e}</li>
               }
               
             })}
           </ul>
         </div>
+        <div className="header-headline-width">
         <ul className="header-headline">
           <h4>
             {
               AllBrodcasterArray.map((e,el)=>{
-                return (<span>
+                return (<span key={el}>
                   <span className="header-headline-brodcaster">{e[0].brodcaster}</span>
                   {e.map((e,el)=>{
-                    return <a href={e.anchorLink} key={el}>{e.anchorText}</a>
+                    return <a href={e.anchorLink} key={el} >{e.anchorText}</a>
                   })}
                 </span>)
               })
             }
           </h4>
         </ul>
+        </div>
         
       </div>
     </div>

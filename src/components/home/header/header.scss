@@ -2,16 +2,17 @@
   width: 100%;
 }
 .header {
+  position: relative;
+  
   &-logo{
     display: flex;
-
+    
     align-items: center;
-    // justify-content: space-between;
-    // padding-rit: -5%;
-    // font-size: 0.9rem;
+   
    
   }
   &-menu{
+    padding: 0 5%;
     &-responsive{
       display: none;
       cursor: pointer;
@@ -60,6 +61,7 @@
     }
 
     &-links{
+      padding: 0 5%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -67,7 +69,10 @@
       padding-bottom: 5px;
       border-top: 2px solid black;
       border-bottom: 2px solid black;
+      border-bottom-style: double;
+      border-bottom-width:5px;
       &-list{
+       
         font-size: 1rem;
         display: flex;
         list-style: none;
@@ -106,6 +111,17 @@
         @media(min-width: 970px) {
           display: none;
         }
+      }
+      transition: all 0.5s ease-out;
+      margin: 0 5%;
+      &-scrolled{
+        margin: 0;
+      transition: all 0.5s ease-out;
+      position: fixed;
+      top: 0;
+      width: 102%;
+      background-color: white;
+      z-index: 99;
       }
     }
 
@@ -211,6 +227,9 @@
   }
   width: 100%;
   overflow: hidden;
+  &-headline-width{
+    padding: 0 5%;
+  }
   &-headline {
     margin-top: 20px;
     height: 30px;
