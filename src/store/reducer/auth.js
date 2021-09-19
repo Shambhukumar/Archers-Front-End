@@ -1,16 +1,23 @@
-import {AUTH_USER, AUTH_LOGOUT,AUTH_ERROR,GET_CATEGORY } from "../actions/auth";
+import {AUTH_USER, AUTH_LOGOUT,AUTH_ERROR,GET_CATEGORY,Loading } from "../actions/auth";
 
 const initState = {
   accesstoken: null,
   userdata: null,
   isAuthenticated: false,
-  category: null
+  category: null,
+  loading: false
 };
 const authReducer = (state = initState, { type, payload }) => {
   switch (type) {
+    case Loading:
+      return{
+        ...state,
+        loading: true
+      }
     case AUTH_USER:
       return {
         ...state,
+        loading: false,
         isAuthenticated: payload.data.Authenticated,
         userdata: payload.data.user,
       };
@@ -18,15 +25,21 @@ const authReducer = (state = initState, { type, payload }) => {
       case GET_CATEGORY:
         return {
           ...state,
+          loading: false,
           isAuthenticated: payload.data.Authenticated,
           userdata: payload.data.user,
           category: payload.data.Category
         }
     case AUTH_LOGOUT:
-      return initState;
+      return {
+        ...state,
+        isAuthenticated: false,
+        userdata: null
+      };
     case AUTH_ERROR:
       return{
         ...state,
+        loading: false,
         error: payload.error,
         error_message: payload.message
       }

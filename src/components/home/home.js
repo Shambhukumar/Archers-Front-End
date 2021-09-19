@@ -65,7 +65,8 @@ const Home = (props) => {
     const jsf = document.cookie;
     console.log(jsf)
     props.logoutUser();
-    history.go(0);
+    
+    // history.go(0);
   };
 
 

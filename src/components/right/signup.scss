@@ -82,6 +82,12 @@
                       width: 35px;
                   }
               }
+              span{
+                display: flex;
+                  font-weight: 700;
+                  justify-content: center;
+                  align-items: center;
+              }
           }
           &-forgot{
               cursor: pointer;

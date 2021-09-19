@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Link} from "react-router-dom";
 import "./Signin.scss"
 import PersonImg from "../../img/person.svg"
 import Closs from "../../img/cross.svg";
-import { useHistory,  Redirect } from "react-router-dom"
-// import "./login.scss";
+import { useHistory} from "react-router-dom"
 import { authUser,setErrorNull } from "../../../store/actions/auth";
 import { connect } from "react-redux";
+import Spin from '../../home/Loader/spin/spin';
 
 function Signin(props) {
     // console.log(props.auth.isAuthenticated)
@@ -49,6 +49,7 @@ function Signin(props) {
                     <form onSubmit={e => login(e)} className="form">
                         <div className="form-signin">
                             <h1>Log In</h1>
+                            {console.log(props.auth)}
                             { props.auth.error_message && <h4 className="form-signin-error">{props.auth.error_message}</h4> }
                             <div className="form-signin-signup-text"><span>Need a Archers Account?</span> <Link to="/registor" className="form-signin-signup-text-button">Sign Up</Link></div>
                             <div className="form-signin-email">
@@ -64,7 +65,7 @@ function Signin(props) {
                                     <span>Forgot Password?</span>
                                 </div>
                                 <div className="form-signin-action-button">
-                                    <button><img alt="person img" src={require("../../img/name.png")}/>Log in</button>
+                                    <button>{props.auth.loading ? <Spin/> : <span><img alt="person img" src={require("../../img/name.png")}/> Log in </span>}</button>
                                 </div>
                                 
                             </div>

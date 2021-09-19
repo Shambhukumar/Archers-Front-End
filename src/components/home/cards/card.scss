@@ -24,38 +24,38 @@
 
   &-NewYorkTimes,&-BBC,&-Gurdian,&-CNN{
     padding: 0 5%;
-    margin-bottom: 5%;
+    // margin-bottom: 5%;
 
   }
-  &-NewYorkTimes{
-    margin-top: 4%;
-    background-color: #1b2845;
-    background-image: linear-gradient(315deg, #1b2845 0%, #2c486d 74%);
-    padding-bottom: 5%;
-    color: #ccc;
-  }
+  // &-NewYorkTimes{
+  //   margin-top: 4%;
+  //   background-color: #1b2845;
+  //   background-image: linear-gradient(315deg, #1b2845 0%, #2c486d 74%);
+  //   padding-bottom: 5%;
+  //   color: #ccc;
+  // }
 
-  &-BBC{
-    background: rgb(83,12,14);
-    background: linear-gradient(333deg, rgba(83,12,14,1) 11%, rgba(219,13,49,1) 100%);
-    padding-bottom: 5%;
-    color: #ccc;
-  }
+  // &-BBC{
+  //   background: rgb(83,12,14);
+  //   background: linear-gradient(333deg, rgba(83,12,14,1) 11%, rgba(219,13,49,1) 100%);
+  //   padding-bottom: 5%;
+  //   color: #ccc;
+  // }
 
-  &-Gurdian{
-    background: #1e3c72; 
-    background: -webkit-linear-gradient(to right, #2a5298, #1e3c72); 
-    background: linear-gradient(to right, #2a5298, #1e3c72);
-    padding-bottom: 5%;
-    color: #ccc;
+  // &-Gurdian{
+  //   background: #1e3c72; 
+  //   background: -webkit-linear-gradient(to right, #2a5298, #1e3c72); 
+  //   background: linear-gradient(to right, #2a5298, #1e3c72);
+  //   padding-bottom: 5%;
+  //   color: #ccc;
 
-  }
-  &-CNN{
-    background-color: #485461;
-    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
-    padding-bottom: 5%;
-    color: #ccc;
-  }
+  // }
+  // &-CNN{
+  //   background-color: #485461;
+  //   background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  //   padding-bottom: 5%;
+  //   color: #ccc;
+  // }
 
   &-view{
     &-card{
@@ -64,8 +64,10 @@
         &-more{
           border-top: 1px solid rgb(23, 133, 207);
           padding-top: 15px;
+          color: rgb(68, 150, 197);
         }
         &-less{
+          color: rgb(68, 150, 197);
           border-bottom: 1px solid rgb(23, 133, 207);
           padding-bottom: 15px;
         }
@@ -171,6 +173,14 @@
 
 
   &-paragraph{
+    &-cnn{
+      a{
+        h4{
+          
+          margin-bottom: 5px;
+        }
+      }
+    }
 
     img{
       width: 100%;

@@ -56,13 +56,21 @@ useEffect(()=>{
         <div className="header-menu-account">
           <div className="header-menu-account-content">
             {name ? <span className="header-menu-account-content-username">Hi {name.toLocaleUpperCase()} <span className="header-menu-account-content-username-arrow"></span>
-            <ul className="header-menu-account-content-username-actions">
-              <div className="header-menu-account-content-username-actions-pointy">
-
+            <div className="header-menu-account-content-username-actions">
+              <div className="header-menu-account-content-username-actions-pointy"></div>
+              <div className="header-menu-account-content-username-actions-menu">
+              <div className="header-menu-account-content-username-actions-menu-contact">
+                <span>Have some suggestion?</span>
+                <h4>Contact Me</h4>
               </div>
-              <li onClick={() => props.logout()}>Sign out</li>
-              <li>Settings</li>
-            </ul>
+              <div>
+                <ul> 
+                <li onClick={() => props.logout()}>Sign out</li>
+                <li>Settings</li>
+                </ul>
+              </div>
+            </div>
+            </div>
             </span> : <Account />}
           </div>
         </div>

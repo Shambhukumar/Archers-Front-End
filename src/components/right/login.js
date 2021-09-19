@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import axios from "axios";
-
-import { useHistory, Link, Redirect } from "react-router-dom"
-import "./login.scss";
+import React from "react";
+import { useHistory, Link } from "react-router-dom"
 import { authUser,setErrorNull } from "../../store/actions/auth";
 import { connect } from "react-redux";
-
+import "./login.scss";
+import Spin from "../home/Loader/spin/spin";
 
 
 const Login = (props) => {
@@ -48,7 +46,7 @@ const Login = (props) => {
             <span>Forgot Password?</span>
           </div>
           <div className="form-signin-action-button">
-            <button><img alt="person img" src={require("../img/name.png")} />Log in</button>
+          <button>{props.auth.loading ? <Spin/> : <span><img alt="person img" src={require("../img/name.png")}/> Log in </span>}</button>
           </div>
 
         </div>

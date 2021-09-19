@@ -4,6 +4,7 @@ export const AUTH_USER = "AUTH_USER";
 export const AUTH_LOGOUT = "AUTH_LOGOUT";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const GET_CATEGORY = "GET_CATEGORY";
+export const Loading = "Loading";
 
 // const authStart = {
 //       type: AUTH_START,
@@ -13,6 +14,7 @@ export const GET_CATEGORY = "GET_CATEGORY";
 export const authUser = async (email, password, dispatch) => {
   try {
     // console.log(email, password);
+    dispatch({type: Loading, payload: null})
     const logincheck = await axios.post(
       process.env.REACT_APP_BASE_URL + "user/login",
       {data:{
@@ -63,6 +65,7 @@ export const SignupUser = async (
   dispatch
 ) => {
   try {
+    dispatch({type: Loading, payload: null})
     const logincheck = await axios.post(
       process.env.REACT_APP_BASE_URL + "user/saveUser",
       {data:{

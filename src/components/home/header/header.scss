@@ -176,32 +176,48 @@
           -webkit-transform: rotate(45deg);
         }
         &-actions{
-          font-size: 0.9rem;
-          color: #ccc;
-          list-style: none;
-          padding-top: 5px;
-          // background-color: rgba(133, 27, 27, 0.993);
-          
-          text-align: center;
-          // position: absolute;
-          min-width: 90px;
-          z-index: 99999;
-         
-         
-
-          li{
-            cursor: pointer;
-            padding: 8px;
-            background-color: rgb(92, 89, 89);
-            border-top: 2px solid #ccc;
-            z-index: 5;
+          min-width: 200px;
+          &-menu{
+            // width: inherit;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-contact{
+              border-right: 1px solid black;
+              width: 60%;
+              span{
+                font-size: 0.7rem;
+              }
+              h4{
+                &:hover{
+                  color: rgb(0, 114, 167);
+                }
+              }
+              // width: 50px;
+              text-align: center;
+            }
+            ul{
             
-            &:hover{
-              background-color: black;
-              z-index: 9999;
-              // border-radius: px;
+              list-style: none;
+            li{
+              &:hover{
+                color: rgb(0, 114, 167);
+                z-index: 9999;
+              }
+              cursor: pointer;
+              padding: 8px;
+              z-index: 5;
             }
           }
+          }
+          font-size: 0.9rem;
+          color: black;
+          list-style: none;
+          padding: 10px;
+          border-radius: 10px;
+          
+          z-index: 99999;
+          background-color: rgb(228, 228, 228);
         }
         &-actions{
           display: none;
@@ -210,6 +226,10 @@
         &:hover &-actions{
           display: block;
         }
+        // &-actions{
+        //     display: block;
+        //   }
+
         &:hover &-arrow{
           transform: rotate(-135deg);
           -webkit-transform: rotate(-135deg);

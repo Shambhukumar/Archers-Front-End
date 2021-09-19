@@ -1,9 +1,9 @@
 import React from "react";
-import "./signup.scss";
-
-import {useHistory,Link,Redirect} from "react-router-dom"
+import {useHistory,Link} from "react-router-dom"
 import {SignupUser, setErrorNull}  from "../../store/actions/auth";
 import {connect} from "react-redux";
+import Spin from "../home/Loader/spin/spin";
+import "./signup.scss";
 
 const Signup=(props)=> {
   const history = useHistory();
@@ -57,7 +57,7 @@ const Signup=(props)=> {
             <span>Forgot Password?</span>
           </div>
           <div className="form-registor-action-button">
-            <button><img alt="person img" src={require("../img/name.png")} />Registor</button>
+          <button>{props.auth.loading ? <Spin/> : <span><img alt="person img" src={require("../img/name.png")}/> Sign Up </span>}</button>
           </div>
 
         </div>
