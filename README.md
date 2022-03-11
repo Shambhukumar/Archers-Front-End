@@ -1,6 +1,6 @@
 # The Archers 
 <h3>About Archers</h3>
-<h4>The archers is a news Website which gather news from the best news agency and display it by the category the goal is to create and make a website were a reader can get the news headline from the news site of there choice and skim through the headlines without spending much time on going to all other website.</h4>
+<h4>A news Website that gathers news from the best news agency and displays it by category the goal is to create and make a website where a reader can get the news headline from the news site of their choice and skim through the headlines without spending much time on going to all other websites.</h4>
 
 
 Visit: https://the-archer.in
